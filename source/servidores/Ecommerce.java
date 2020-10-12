@@ -28,7 +28,7 @@ public class Ecommerce extends Thread {
                 System.out.println("Id: "+ped.getIdPedido()+"    Status: "+ped.getStatus());
             }
         }else if(opcao == 2){
-            gerarRelatorio();
+            gerarRelatorio(idCliente);
         }else{
             System.out.println("Opção não encontrada.");
         }
@@ -44,7 +44,7 @@ public class Ecommerce extends Thread {
         return ret;
     }
 
-    public void gerarRelatorio(idCliente){
+    public void gerarRelatorio(int idCliente){
         ArrayList<Pedido> lista = new ArrayList<Pedido>();
         for (Pedido pedido: pedidos) {
             if(pedido.getIdCliente() == idCliente){//achou o pedido daquele cliente
