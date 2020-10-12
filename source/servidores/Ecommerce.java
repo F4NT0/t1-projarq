@@ -21,12 +21,18 @@ public class Ecommerce extends Thread {
         return nome;
     }
 
-    @Override
-    public void run(){
-        
+    public void requisicao(int idCliente,int opcao){
+        if(opcao == 1){//mostrar status dos pedidos do cliente
+            ArrayList<Pedido> lista = pedidosDoCliente(idCliente);
+            for (Pedido ped:lista) {
+                System.out.println("Id: "+ped.getIdPedido()+"    Status: "+ped.getStatus());
+            }
+        }else if(opcao == 2){
+            gerarRelatorio();
+        }else{
+            System.out.println("Opção não encontrada.");
+        }
     }
-
-    public 
 
     public ArrayList<Pedido> pedidosDoCliente(int idCliente){
         ArrayList<Pedido> ret = new ArrayList<Pedido>();
@@ -36,5 +42,18 @@ public class Ecommerce extends Thread {
             }
         }
         return ret;
+    }
+
+    public void gerarRelatorio(idCliente){
+        ArrayList<Pedido> lista = new ArrayList<Pedido>();
+        for (Pedido pedido: pedidos) {
+            if(pedido.getIdCliente() == idCliente){//achou o pedido daquele cliente
+                lista.add(pedido);
+            }
+        }
+        System.out.println("Ecommerce: "+this.nome+"\n");
+        for(Pedido ped: lista){
+            System.out.println("Data: "+ped.getData()+"  Agilidade: "+ped.getPrasoEntregado()+"  Qtd Dias Previstos:"+ped.getPrasoMaximoEntrega());
+        }
     }
 }
