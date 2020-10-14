@@ -3,11 +3,14 @@ import source.servidores.Ecommerce;
 import source.servidores.Pedido;
 import source.servidores.Produto;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args){
+
+        ArrayList<Ecommerce> listaEco = new ArrayList<Ecommerce>();
 
         Cliente cliente1=new Cliente("Lucas",7483,1);
         Cliente cliente2=new Cliente("BolinhadeNeve",4549,2);
@@ -15,6 +18,9 @@ public class Main {
 
         Ecommerce ecommerce1=new Ecommerce(1,"Jorginho Jogos");
         Ecommerce ecommerce2=new Ecommerce(2,"Bobbi construcoes");
+
+        listaEco.add(ecommerce1);
+        listaEco.add(ecommerce2);
 
         Produto produto1= new Produto(1,"Genshin Impact", "Jogo gratis de mundo aberto", 0);
         Produto produto2= new Produto(1,"Farcry 5", "jogo de fps com mundo aberto", 50);
@@ -24,7 +30,7 @@ public class Main {
 
 
         System.out.println("Bem-vindo ao centro dos Ecommerces!");
-        System.out.println("Insira 1 para cadastrar um Ecommerce ou 2 para cadastrar um pedido");
+        System.out.println("Insira 1 para cadastrar um Ecommerce ou 2 para cadastrar um pedido ou 3 para gerar relatório.");
         Scanner teclado= new Scanner(System.in);
         int opcao=teclado.nextInt();
         if(opcao==1){
@@ -33,7 +39,7 @@ public class Main {
             System.out.println("Insira o nome: ");
             String nome=teclado.next();
 
-            cadastraEcommerce(id, nome);
+            listaEco.add(cadastraEcommerce(id, nome));
 
             System.out.println("Ecommerce cadastrado com sucesso!");
         }
@@ -57,7 +63,15 @@ public class Main {
             ecommerce1.adicionaPedido(pedido);
             System.out.println("Pedido cadastrado com sucesso!");
         }
-        ecommerce1.gerarRelatorio(123);
+        else if(opcao==3){
+            System.out.println("Insira o id do cliente:");
+            int idcli=teclado.nextInt();
+            ecommerce1.gerarRelatorio(idcli);
+            for (Ecommerce eco:listaEco) {
+                eco.gerarRelatorio(idcli);
+            }
+        }
+
     }
 
     public static Ecommerce cadastraEcommerce(int idEcommerce, String nome)
