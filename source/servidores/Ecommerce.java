@@ -45,6 +45,11 @@ public class Ecommerce extends Thread {
                 ret.add(pedido);
             }
         }
+        System.out.println("Ecommerce: "+this.nome);
+        System.out.println("Pedidos do cliente: "+idCliente);
+        for (Pedido ped:ret) {
+            System.out.println("Pedido: "+ped.getIdPedido()+"  Status: "+ped.getStatus());
+        }
         return ret;
     }
 
@@ -57,7 +62,7 @@ public class Ecommerce extends Thread {
         }
         System.out.println("Ecommerce: "+this.nome+"\n");
         for(Pedido ped: lista){
-            System.out.println("Data: "+ped.getData()+" Status: "+ped.getStatus()+"  Agilidade: "+ped.getPrasoEntregado()+"  Qtd Dias Previstos:"+ped.getPrasoMaximoEntrega());
+            System.out.println("Data: "+ped.getData()+"  Agilidade: "+ped.getPrasoEntregado()+"  Qtd Dias Previstos:"+ped.getPrasoMaximoEntrega());
         }
     }
 }

@@ -30,7 +30,7 @@ public class Main {
 
 
         System.out.println("Bem-vindo ao centro dos Ecommerces!");
-        System.out.println("Insira 1 para cadastrar um Ecommerce ou 2 para cadastrar um pedido ou 3 para gerar relatório.");
+        System.out.println("Insira 1 para cadastrar um Ecommerce ou 2 para cadastrar um pedido ou 3 para gerar relatório ou 4 para consultar pedidos do cliente.");
         Scanner teclado= new Scanner(System.in);
         int opcao=teclado.nextInt();
         if(opcao==1){
@@ -66,12 +66,17 @@ public class Main {
         else if(opcao==3){
             System.out.println("Insira o id do cliente:");
             int idcli=teclado.nextInt();
-            ecommerce1.gerarRelatorio(idcli);
-            for (Ecommerce eco:listaEco) {
-                eco.gerarRelatorio(idcli);
+            for(Ecommerce eco:listaEco){
+                eco.requisicao(idcli,2);
             }
         }
-
+        else if(opcao==4){
+            System.out.println("Insira o id do cliente:");
+            int idcli=teclado.nextInt();
+            for(Ecommerce eco:listaEco){
+                eco.requisicao(idcli,1);
+            }
+        }
     }
 
     public static Ecommerce cadastraEcommerce(int idEcommerce, String nome)
