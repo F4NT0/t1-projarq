@@ -34,6 +34,8 @@ public class Main {
             String nome=teclado.next();
 
             cadastraEcommerce(id, nome);
+
+            System.out.println("Ecommerce cadastrado com sucesso!");
         }
         else if(opcao==2)
         {
@@ -52,7 +54,10 @@ public class Main {
 
             pedido.addProduto(produto1);
             pedido.addProduto(produto2);
+            ecommerce1.adicionaPedido(pedido);
+            System.out.println("Pedido cadastrado com sucesso!");
         }
+        ecommerce1.gerarRelatorio(123);
     }
 
     public static Ecommerce cadastraEcommerce(int idEcommerce, String nome)

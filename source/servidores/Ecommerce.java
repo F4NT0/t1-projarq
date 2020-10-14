@@ -21,6 +21,10 @@ public class Ecommerce extends Thread {
         return nome;
     }
 
+    public void adicionaPedido(Pedido p){
+        pedidos.add(p);
+    }
+
     public void requisicao(int idCliente,int opcao){
         if(opcao == 1){//mostrar status dos pedidos do cliente
             ArrayList<Pedido> lista = pedidosDoCliente(idCliente);
@@ -53,7 +57,7 @@ public class Ecommerce extends Thread {
         }
         System.out.println("Ecommerce: "+this.nome+"\n");
         for(Pedido ped: lista){
-            System.out.println("Data: "+ped.getData()+"  Agilidade: "+ped.getPrasoEntregado()+"  Qtd Dias Previstos:"+ped.getPrasoMaximoEntrega());
+            System.out.println("Data: "+ped.getData()+" Status: "+ped.getStatus()+"  Agilidade: "+ped.getPrasoEntregado()+"  Qtd Dias Previstos:"+ped.getPrasoMaximoEntrega());
         }
     }
 }
