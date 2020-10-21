@@ -1,7 +1,6 @@
 package ecommerce.src.main.java.projarq.servidor;
 
 import java.util.ArrayList;
-import Produto;
 
 public class Pedido {
     private int idPedido;

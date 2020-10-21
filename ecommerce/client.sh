@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# ----------------------
-# Compile and Run Client
-# ----------------------
+# ------------------------------------------
+# START AND CREATE A NEW CLIENTE CONNECTION
+# -----------------------------------------
 
-javac src/cliente/Client.java -d out/production/t1-projarq/
-java -cp out/production/t1-projarq/ source.cliente.Client
+java -cp src/classes/ ecommerce.src.main.java.projarq.cliente.Client
