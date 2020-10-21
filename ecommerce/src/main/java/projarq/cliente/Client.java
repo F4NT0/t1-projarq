@@ -10,7 +10,12 @@ public class Client {
          * Atributes and Objects
          */
         boolean connection = true;
+        boolean sendLogin = true;
         Scanner in = new Scanner(System.in);
+        String message;
+        String nomeCliente = "";
+        String cpf;
+        String dataConcat;
 
 
 
@@ -18,10 +23,6 @@ public class Client {
 
             InputStream input = socket.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-
-            //Recebe dados do Servidor
-            //String text = reader.readLine();
-            //System.out.println(text);
 
             //Envia dados para o Servidor
             OutputStream output = socket.getOutputStream();
@@ -31,26 +32,47 @@ public class Client {
             System.out.println("║ BEM VINDO AO GERÊNCIADOR DE E-COMMERCES");
             System.out.println("╚");
 
-            System.out.print("Digite [login] para se iniciar sua Sessão: ");
-            String message = in.next();
-
-            while(connection){
- 
+            //Fazendo login
+           while(sendLogin){
+                System.out.print("Deseja Logar ou se Cadastrar no Sistema? [login/sign up]: ");
+                message = in.nextLine();
                 if(message.equals("login")){
-                    System.out.print("Digite seu nome na seguinte estrutura [user:seu nome]: ");
-                    String name = in.nextLine();
-                    writer.println(name);
+                    System.out.print("Por favor, Digite o seu nome de usuário: ");
+                    message = in.nextLine();
+                    if(message != nomeCliente){
+                        System.out.println("Desculpe, esse usuário não existe, tente novamente!");
+                    }
+                    if(message.equals(nomeCliente)){
+                        System.out.println("Seja bem vindo novamente " + nomeCliente + "!");
+                        sendLogin = false;
+                    }
+                }else{
+                    if(message.equals("sign up")){
+                        System.out.print("Digite o seu nome para cadastro: ");
+                        nomeCliente = in.nextLine();
+                        System.out.print("Digite o seu CPF para cadastro: ");
+                        cpf = in.next();
+                        System.out.println("Seus Dados: \n");
+                        System.out.println("Nome: " + nomeCliente);
+                        System.out.println("CPF: " + cpf);
+                        dataConcat = "data:" + nomeCliente + ":" + cpf;
+                        writer.println(dataConcat);
+                        sendLogin = false;
+                    }else{
+                        System.out.println("Desculpe, comando não reconhecido, tente novamente! ");
+                    }
                 }
-
+           }
+           
+            while(connection){
                 //Recebe dados do Servidor
                 String receive = reader.readLine();
-                System.out.println(receive);
 
-                if(receive.equals("fechar")){
+                if(receive.equals("Desculpe, chegou o limite de usuarios no momento")){
+                    System.out.println(receive);
                     connection = false;
-                }else{
-                    connection = true;
                 }
+                
 
             }
             in.close();

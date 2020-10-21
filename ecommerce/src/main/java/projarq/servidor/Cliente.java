@@ -1,4 +1,4 @@
-package ecommerce.src.main.java.projarq.cliente;
+package ecommerce.src.main.java.projarq.servidor;
 
 public class Cliente {
 
