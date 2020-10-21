@@ -29,7 +29,7 @@ public class Main {
 
 
 
-        System.out.println("Bem-vindo ao centro dos Ecommerces!");
+        System.out.println("Bem-vindo ao centro dos Ecommerces!\n");
         System.out.println("Insira 1 para cadastrar um Ecommerce ou 2 para cadastrar um pedido ou 3 para gerar relatório ou 4 para consultar pedidos do cliente.");
         Scanner teclado= new Scanner(System.in);
         int opcao=teclado.nextInt();

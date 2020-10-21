@@ -2,7 +2,6 @@ package source.cliente;
 
 public class Cliente {
 
-
     private String nome;
     private int cpf;
     private int idCliente;
