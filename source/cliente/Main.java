@@ -1,4 +1,5 @@
 package source.cliente;
+
 import source.servidores.Ecommerce;
 import source.servidores.Pedido;
 import source.servidores.Produto;
@@ -12,9 +13,9 @@ public class Main {
 
         ArrayList<Ecommerce> listaEco = new ArrayList<Ecommerce>();
 
-        Cliente cliente1=new Cliente("Lucas",7483,1);
-        Cliente cliente2=new Cliente("BolinhadeNeve",4549,2);
-        Cliente cliente3=new Cliente("Dolinho",18374,3);
+        //Cliente cliente1=new Cliente("Lucas",7483,1);
+        //Cliente cliente2=new Cliente("BolinhadeNeve",4549,2);
+        //Cliente cliente3=new Cliente("Dolinho",18374,3);
 
         Ecommerce ecommerce1=new Ecommerce(1,"Jorginho Jogos");
         Ecommerce ecommerce2=new Ecommerce(2,"Bobbi construcoes");
@@ -24,8 +25,8 @@ public class Main {
 
         Produto produto1= new Produto(1,"Genshin Impact", "Jogo gratis de mundo aberto", 0);
         Produto produto2= new Produto(1,"Farcry 5", "jogo de fps com mundo aberto", 50);
-        Produto produto3= new Produto(1,"bloco de costrucao", "blocos para construcoes", 10);
-        Produto produto4= new Produto(1,"Tinta de parede azul", "tinta para colorir parede de azul", 3);
+        //Produto produto3= new Produto(1,"bloco de costrucao", "blocos para construcoes", 10);
+        //Produto produto4= new Produto(1,"Tinta de parede azul", "tinta para colorir parede de azul", 3);
 
 
 
@@ -77,6 +78,7 @@ public class Main {
                 eco.requisicao(idcli,1);
             }
         }
+        teclado.close();
     }
 
     public static Ecommerce cadastraEcommerce(int idEcommerce, String nome)

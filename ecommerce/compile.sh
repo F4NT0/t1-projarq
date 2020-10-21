@@ -7,7 +7,7 @@
 # Servidor
 
 
-javac src/main/java/projarq/servidor/Produto.java
+javac src/main/java/projarq/servidor/Produto.java 
 javac src/main/java/projarq/servidor/Pedido.java
 # javac src/main/java/projarq/servidor/Ecommerce.java -d out/servidor
 # javac src/main/java/projarq/servidor/Server.java -d out/servidor

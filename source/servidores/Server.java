@@ -26,7 +26,7 @@ public class Server {
                 System.out.println(text);
 
                 if(text.equals("teste")){
-                    writer.println("Mensagem Recebida!");
+                    writer.println("sair");
                 }
             }
        }catch(IOException e){
