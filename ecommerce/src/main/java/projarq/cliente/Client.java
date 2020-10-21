@@ -11,7 +11,6 @@ public class Client {
          */
         boolean connection = true;
         Scanner in = new Scanner(System.in);
-        Cliente cliente;
 
 
 
@@ -32,16 +31,22 @@ public class Client {
             System.out.println("║ BEM VINDO AO GERÊNCIADOR DE E-COMMERCES");
             System.out.println("╚");
 
+            System.out.print("Digite [login] para se iniciar sua Sessão: ");
+            String message = in.next();
+
             while(connection){
-               System.out.println("Digite uma mensagem: ");
-               var message = in.next();
-               writer.println(message);
+ 
+                if(message.equals("login")){
+                    System.out.print("Digite seu nome na seguinte estrutura [user:seu nome]: ");
+                    String name = in.nextLine();
+                    writer.println(name);
+                }
 
                 //Recebe dados do Servidor
                 String receive = reader.readLine();
                 System.out.println(receive);
 
-                if(receive.equals("sair")){
+                if(receive.equals("fechar")){
                     connection = false;
                 }else{
                     connection = true;

@@ -1,0 +1,18 @@
+{
+    "netshoes":[
+        1,
+        "Netshoes"
+    ],
+    "amazon":[
+        2,
+        "Amazon Company"
+    ],
+    "playstation":[
+        3,
+        "Playstation Company"
+    ],
+    "xbox":[
+        4,
+        "Xbox Company"
+    ] 
+}

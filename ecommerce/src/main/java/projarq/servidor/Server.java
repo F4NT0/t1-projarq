@@ -10,23 +10,33 @@ public class Server {
             System.out.println("Servidor rodando na Porta 8184!");
             while(true){
                 Socket socket = serverSocket.accept();
-                System.out.println("Novo Cliente Conectado");
+                System.out.println("Iniciando Login...");
 
+                // writer envia dados ao Cliente
                 OutputStream output = socket.getOutputStream();
                 PrintWriter writer = new PrintWriter(output,true);
 
-                //Envia dado para o Cliente
-                writer.println("Seja bem vindo ao Sistema de E-commerce!");
-
+                // reader recebe dados do cliente
                 InputStream input = socket.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
-                //Recebe dados do Cliente
                 String text = reader.readLine();
-                System.out.println(text);
+                System.out.println("Recebido do Cliente: " + text);
 
-                if(text.equals("teste")){
-                    writer.println("sair");
+                /**
+                * OPÇÕES DE RECEBIDOS
+                */
+
+                if(text.equals("login")){
+                    writer.println("[SERVIDOR] Login Recebido");
+                }
+
+                if(text.substring(0,6).equals("user:")){
+                    System.out.println("Cliente " + text.substring(6,text.length()) + " Conectado!");
+                }
+
+                if(text.equals("sair")){
+                    writer.println("fechar");
                 }
             }
        }catch(IOException e){
