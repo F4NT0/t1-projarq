@@ -72,4 +72,4 @@ Para compilar todos os Arquivos criados, rode o Arquivo **t1-projarq/ecommerce/s
 > ./compile.sh
 ```
 
-
+<img src="info.gif">
