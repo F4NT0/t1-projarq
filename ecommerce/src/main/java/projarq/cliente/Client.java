@@ -115,6 +115,13 @@ public class Client {
                 }
                 if(receive.equals("pedidos")){
                     String pedido1 = options3(econame);
+                    String ped[] = new String[7];
+                    ped = pedido1.split(":");
+                    System.out.println("\nCliente: " + ped[1]);
+                    System.out.println("\nEntrega: " + ped[5]);
+                    System.out.println("\nID: " + ped[2]);
+                    System.out.println("\nData: " + ped[6]);
+
                     writer.println(pedido1);
                 }   
                 if(receive.equals("eco created")){
