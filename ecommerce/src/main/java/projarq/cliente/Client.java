@@ -69,6 +69,10 @@ public class Client {
                     System.out.println(receive);
                     connection = false;
                 }
+                if(receive.equals("created")){
+                    System.out.println("Sua conta foi criada com Sucesso!");
+                    System.out.println("Sua senha de acesso é " + cpf + " !");
+                }
                 if(receive.equals("granted")){
                     System.out.println("Bem vindo de volta " + nomeCliente);
                 }

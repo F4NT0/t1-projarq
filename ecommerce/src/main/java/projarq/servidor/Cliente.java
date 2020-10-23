@@ -26,8 +26,12 @@ public class Cliente {
     public void clienteDatabase(Cliente cl){this.db.add(cl);}
 
     public void getDatabase(){
+        System.out.println("╭────────────────────────────╮");
+        System.out.println("| Banco de Dados de Clientes |");
+        System.out.println("╰────────────────────────────╯");
+        System.out.println("\n");
         for(Cliente valor : db){
-            System.out.println("Cliente " + valor.getNome() + " / CPF " + valor.getCpf());
+            System.out.println("❱ CLIENTE: " + valor.getNome() + " | SENHA: " + valor.getCpf());
         }
     }
 
@@ -36,8 +40,8 @@ public class Cliente {
             if(db.get(i).getNome().equals(nome)){
                 if(db.get(i).getCpf() == senha){
                     return true;
-                }else{return false;}
-            }else{return false;}
+                }
+            }
         }
         return false;
     }

@@ -11,7 +11,6 @@ public class Server {
         String clientData[] = new String[3];
         Cliente clientesDatabase = new Cliente();
         Cliente clientesOnline[] = new Cliente[4];
-        int accessControler = 0;
 
        try(ServerSocket serverSocket = new ServerSocket(8184);){
             System.out.println("Servidor rodando na Porta 8184!");
@@ -25,30 +24,24 @@ public class Server {
                 // reader recebe dados do cliente
                 InputStream input = socket.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-
                 String text = reader.readLine();
-                //System.out.println("Recebido do Cliente: " + text);
 
-                /**
-                * OPÇÕES DE RECEBIDOS
-                */
+                /*********************
+                * LIDANDO COM RECEIVE
+                **********************/
 
-                // Login do Cliente(sign up)
+                // Sign Up
                 if(text.substring(0,4).equals("data")){
-                    if(accessControler == 3){
-                        writer.println("Desculpe, chegou o limite de usuarios no momento");
-                    }else{
-                        clientData = text.split(":");
-                        int cpf = Integer.parseInt(clientData[2]);
-                        Cliente addNew = new Cliente(clientData[1],cpf);
-                        clientesDatabase.clienteDatabase(addNew);
-                        System.out.println("\nCliente " + clientData[1] + " foi Criado com Sucesso!\n");
-                        accessControler++;
-                    }
+                    clientData = text.split(":");
+                    int cpf = Integer.parseInt(clientData[2]);
+                    Cliente addNew = new Cliente(clientData[1],cpf);
+                    clientesDatabase.clienteDatabase(addNew);
+                    System.out.println("\nCliente " + clientData[1] + " foi Criado com Sucesso!\n");
+                    writer.println("created");
                     clientesDatabase.getDatabase();
                 }
 
-                // Cadastro Cliente(login)
+                // Login
                 if(text.substring(0,4).equals("user")){
                     clientData = text.split(":");
                     int cpf = Integer.parseInt(clientData[2]);
