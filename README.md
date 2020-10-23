@@ -49,3 +49,27 @@ Nome do Arquivo|Para que serve|Linguagem|Status|Atualizado
 **servidor/Cliente.java**|Classe dos Objetos Cliente|Java|✅|21/10
 **cliente/Client.java**|Criador de Clientes para acessarem o Servidor|Java|✅|21/10
 
+### Como compilar
+
+Se você utiliza Linux, Inicie em um Terminal o Arquivo **t1-projarq/ecommerce/server.sh**:
+
+```shell
+# Dentro do Diretório ecommerce/
+> ./server.sh
+```
+
+Inicie em outro Terminal o Arquivo **t1-projarq/ecommerce/client.sh**:
+
+```shell
+# Dentro do Diretório ecommerce/
+> ./client.sh
+```
+
+Para compilar todos os Arquivos criados, rode o Arquivo **t1-projarq/ecommerce/src/compile.sh**
+
+```shell
+# Dentro do Diretório src/
+> ./compile.sh
+```
+
+
