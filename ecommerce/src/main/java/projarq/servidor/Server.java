@@ -9,7 +9,7 @@ public class Server {
    public static void main(String[] args){
         //Variaveis
         String clientData[] = new String[3];
-        Cliente cliente;
+        Cliente clientesDatabase = new Cliente();
         Cliente clientesOnline[] = new Cliente[4];
         int accessControler = 0;
 
@@ -33,23 +33,39 @@ public class Server {
                 * OPÇÕES DE RECEBIDOS
                 */
 
-
+                // Login do Cliente(sign up)
                 if(text.substring(0,4).equals("data")){
                     if(accessControler == 3){
                         writer.println("Desculpe, chegou o limite de usuarios no momento");
                     }else{
                         clientData = text.split(":");
-                        System.out.println("\nCliente " + clientData[1] + " está Online!\n");
                         int cpf = Integer.parseInt(clientData[2]);
-                        clientesOnline[accessControler] = new Cliente(clientData[1],cpf,accessControler);
-                        //Verificação dos dados
-                        System.out.println("Nome do Cliente: " + clientesOnline[accessControler].getNome());
-                        System.out.println("CPF do Cliente: " + clientesOnline[accessControler].getCpf());
-                        System.out.println("ID do Cliente: " + clientesOnline[accessControler].getIdCliente());
+                        Cliente addNew = new Cliente(clientData[1],cpf);
+                        clientesDatabase.clienteDatabase(addNew);
+                        System.out.println("\nCliente " + clientData[1] + " foi Criado com Sucesso!\n");
                         accessControler++;
                     }
-                }   
+                    clientesDatabase.getDatabase();
+                }
 
+                // Cadastro Cliente(login)
+                if(text.substring(0,4).equals("user")){
+                    clientData = text.split(":");
+                    int cpf = Integer.parseInt(clientData[2]);
+                    boolean check = clientesDatabase.checkLogin(clientData[1], cpf);
+                    if(check == true){
+                        writer.println("granted");
+                        System.out.println("Cliente " + clientData[1] + " Logado com Sucesso!");
+                    }else{
+                        writer.println("error:"+clientData[1]+":"+clientData[2]);
+                    }   
+                    clientesDatabase.getDatabase();
+                }
+
+                
+                
+                
+                //Finalizando o Processo
                 if(text.equals("sair")){
                     writer.println("fechar");
                 }
