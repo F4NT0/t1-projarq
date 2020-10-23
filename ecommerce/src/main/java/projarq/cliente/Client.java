@@ -89,7 +89,6 @@ public class Client {
                 if(receive.equals("granted")){
                     System.out.println("\nBem vindo de volta " + nomeCliente);
                     String selection = options();
-                    System.out.println("Entrada de Retorno: " + selection);
                     writer.println(selection);
                     continue;
                 }
@@ -104,15 +103,24 @@ public class Client {
                     writer.println("eco:" + econame);
                     continue;
                 }
-                if(receive.equals("comprar")){
-                    System.out.println("Selecionado Comprar!");
+                if(receive.equals("produtos")){
+                    System.out.print("Digite o nome do Produto: ");
+                    String nomeProduto = in.next();
+                    System.out.print("Digite uma descrição do Produto: ");
+                    String descProduto = in.next();
+                    System.out.print("Digite o preço do Produto: ");
+                    String precProduto = in.next();
+                    String concatData = "prod:" + econame + ": " + nomeProduto + ":" + descProduto + ":" + precProduto;
+                    writer.println(concatData);
+                    continue;
                 }
-                if(receive.equals("verificar")){
+                if(receive.equals("pedidos")){
                     System.out.println("Selecionado Verificar!");
-                }
+                }   
                 if(receive.equals("eco created")){
                     System.out.println("\nE-commerce " + econame + " criado com Sucesso!");
-                    String selection = options();
+                    String selection = options2();
+                    System.out.println("Saida: " + selection);
                     writer.println(selection);
                     continue;
                 }
@@ -131,10 +139,19 @@ public class Client {
         Scanner in = new Scanner(System.in);
         System.out.println("Como Deseja interagir no Sistema?\n");
         System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
-        System.out.println("❱ Sou Cliente e desejo [comprar] produtos.");
-        System.out.println("❱ Sou Cliente e desejo [verificar] meus pedidos.");
+        System.out.println("❱ Desejo Cadastrar [produtos].");
+        System.out.println("❱ Desejo Verificar todos os [pedidos]");
         System.out.println("❱ [sair] do Sistema");
-        System.out.println("\nDigite sua opção desejada [vincular/comprar/verificar/sair]: ");
+        System.out.print("\nDigite sua opção desejada: ");
+        String select = in.next();
+        return select;
+    }
+    public static String options2(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("O que deseja fazer no E-Commerce?\n");
+        System.out.println("❱ Cadastrar [produto].");
+        System.out.println("❱ Verificar [pedidos].");
+        System.out.print("\nDigite sua opção desejada: ");
         String select = in.next();
         return select;
     }

@@ -5,12 +5,14 @@ public class Produto {
     private String nome;
     private String descricao;
     private double preco;
+    private String eco;
 
-    public Produto(int id, String nome, String descricao,double preco){
+    public Produto(int id, String eco, String nome, String descricao,double preco){
         this.id = id;
         this.descricao = descricao;
         this.nome = nome;
         this.preco = preco;
+        this.eco = eco;
     }
 
     public int getId() {
@@ -26,6 +28,7 @@ public class Produto {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    public String getEco(){return eco;}
 
     public String getNome() {
         return nome;

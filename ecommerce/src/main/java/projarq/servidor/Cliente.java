@@ -10,7 +10,8 @@ public class Cliente {
     private ArrayList<Cliente> db = new ArrayList<Cliente>();
 
     // Construtor 1
-    public Cliente(String nome, int cpf){
+    public Cliente(int idCliente, String nome, int cpf){
+        this.idCliente = idCliente;
         this.nome=nome;
         this.cpf=cpf;
     }
@@ -32,7 +33,7 @@ public class Cliente {
         System.out.println("\033[0;33m╰────────────────────────────╯");
         System.out.println("\n");
         for(Cliente valor : db){
-            System.out.println("\033[0;33m❱ CLIENTE: " + valor.getNome() + " | SENHA: " + valor.getCpf());
+            System.out.println("\033[0;33m❱ ID: " + valor.getIdCliente() + " | CLIENTE: " + valor.getNome() + " | SENHA: " + valor.getCpf() + "\033[0m");
         }
     }
 

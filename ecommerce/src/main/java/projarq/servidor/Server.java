@@ -11,6 +11,8 @@ public class Server {
         String clientData[] = new String[3];
         Cliente clientesOnline[] = new Cliente[4];
         int ecoAux = 1;
+        int userAux = 1;
+        int prodAux = 1;
 
         //Banco de Dados
         Cliente clientesDatabase = new Cliente();
@@ -42,14 +44,32 @@ public class Server {
                         continue;
                     }
 
+                    if(text.equals("vincular")){
+                        writer.println("vincular");
+                        continue;
+                    }
+                    // Criar Produtos
+                    if(text.equals("produto")){
+                        System.out.println(text);
+                        writer.println("produtos");
+                        continue;
+                    }
+                    // Verificar Pedidos
+                    if(text.equals("verificar")){
+                        System.out.println("Escolhido Verificar");
+                        writer.println("verificar");
+                        continue;
+                    }
+
                     // Sign Up
                     if(text.substring(0,4).equals("data")){
                         clientData = text.split(":");
                         int cpf = Integer.parseInt(clientData[2]);
-                        Cliente addNew = new Cliente(clientData[1],cpf);
+                        Cliente addNew = new Cliente(userAux,clientData[1],cpf);
                         clientesDatabase.clienteDatabase(addNew);
                         System.out.println("\nCliente " + clientData[1] + " foi Criado com Sucesso!\n");
                         writer.println("created");
+                        userAux++;
                         clientesDatabase.getDatabase();
                         continue;
                     }
@@ -80,21 +100,15 @@ public class Server {
                         continue;
                     }
 
-                    // Criar e-commerce
-                    if(text.equals("vincular")){
-                        writer.println("vincular");
-                        continue;
-                    }
-                    // Fazer Compras
-                    if(text.equals("comprar")){
-                        System.out.println("Escolhido Comprar");
-                        writer.println("comprar");
-                        continue;
-                    }
-                    // Verificar Pedidos
-                    if(text.equals("verificar")){
-                        System.out.println("Escolhido Verificar");
-                        writer.println("verificar");
+                    // Criar Produto
+                    if(text.substring(0,4).equals("prod")){
+                        String prod[] = new String[5];
+                        prod = text.split(":");
+                        double preco = Double.parseDouble(prod[4]);
+                        Produto produto = new Produto(prodAux,prod[1],prod[2],prod[3],preco);
+                        ecommerceDatabase.addToProdsDatabase(produto,prod[1]);
+                        ecommerceDatabase.getProdutosDatabase();
+                        prodAux++;
                         continue;
                     }
 
