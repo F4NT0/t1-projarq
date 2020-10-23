@@ -117,10 +117,12 @@ public class Client {
                     String pedido1 = options3(econame);
                     String ped[] = new String[7];
                     ped = pedido1.split(":");
+                    System.out.println("--------------------------------");
                     System.out.println("\nCliente: " + ped[1]);
                     System.out.println("\nEntrega: " + ped[5]);
                     System.out.println("\nID: " + ped[2]);
                     System.out.println("\nData: " + ped[6]);
+                    System.out.println("--------------------------------");
 
                     writer.println(pedido1);
                 }   
