@@ -24,60 +24,62 @@ public class Server {
                 // reader recebe dados do cliente
                 InputStream input = socket.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-                String text = reader.readLine();
 
                 /*********************
                 * LIDANDO COM RECEIVE
                 **********************/
 
-                // Sign Up
-                if(text.substring(0,4).equals("data")){
-                    clientData = text.split(":");
-                    int cpf = Integer.parseInt(clientData[2]);
-                    Cliente addNew = new Cliente(clientData[1],cpf);
-                    clientesDatabase.clienteDatabase(addNew);
-                    System.out.println("\nCliente " + clientData[1] + " foi Criado com Sucesso!\n");
-                    writer.println("created");
-                    clientesDatabase.getDatabase();
-                }
+                String text;
+                do{
+                    text = reader.readLine();
+                    System.out.println(text);
 
-                // Login
-                if(text.substring(0,4).equals("user")){
-                    clientData = text.split(":");
-                    int cpf = Integer.parseInt(clientData[2]);
-                    boolean check = clientesDatabase.checkLogin(clientData[1], cpf);
-                    if(check == true){
-                        writer.println("granted");
-                        System.out.println("Cliente " + clientData[1] + " Logado com Sucesso!");
-                    }else{
-                        writer.println("error:"+clientData[1]+":"+clientData[2]);
-                    }   
-                    clientesDatabase.getDatabase();
-                }
+                    // Sign Up
+                    if(text.substring(0,4).equals("data")){
+                        clientData = text.split(":");
+                        int cpf = Integer.parseInt(clientData[2]);
+                        Cliente addNew = new Cliente(clientData[1],cpf);
+                        clientesDatabase.clienteDatabase(addNew);
+                        System.out.println("\nCliente " + clientData[1] + " foi Criado com Sucesso!\n");
+                        writer.println("created");
+                        clientesDatabase.getDatabase();
+                        continue;
+                    }
 
-                // Criar e-commerce
-                if(text.equals("vincular")){
-                    System.out.println("Escolhido Vincular");
-                    writer.println("vincular");
-                }
-                // Fazer Compras
-                if(text.equals("comprar")){
-                    System.out.println("Escolhido Comprar");
-                    writer.println("comprar");
-                }
-                // Verificar Pedidos
-                if(text.equals("verificar")){
-                    System.out.println("Escolhido Verificar");
-                    writer.println("verificar");
-                }
+                    // Login
+                    if(text.substring(0,4).equals("user")){
+                        clientData = text.split(":");
+                        int cpf = Integer.parseInt(clientData[2]);
+                        boolean check = clientesDatabase.checkLogin(clientData[1], cpf);
+                        if(check == true){
+                            writer.println("granted");
+                            System.out.println("Cliente " + clientData[1] + " Logado com Sucesso!");
+                        }else{
+                            writer.println("error:"+clientData[1]+":"+clientData[2]);
+                        }
+                        continue;
+                    }
 
-                
-                
-                
-                //Finalizando o Processo
-                if(text.equals("sair")){
-                    writer.println("fechar");
-                }
+                    // Criar e-commerce
+                    if(text.equals("vincular")){
+                        System.out.println("Escolhido Vincular");
+                        writer.println("vincular");
+                        continue;
+                    }
+                    // Fazer Compras
+                    if(text.equals("comprar")){
+                        System.out.println("Escolhido Comprar");
+                        writer.println("comprar");
+                        continue;
+                    }
+                    // Verificar Pedidos
+                    if(text.equals("verificar")){
+                        System.out.println("Escolhido Verificar");
+                        writer.println("verificar");
+                        continue;
+                    }
+
+                }while(!text.equals("sair"));
             }
        }catch(IOException e){
            System.err.println(e);

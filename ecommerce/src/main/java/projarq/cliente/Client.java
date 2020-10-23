@@ -21,8 +21,13 @@ public class Client {
 
         try(Socket socket = new Socket("localhost",8184)){
 
-            InputStream input = socket.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+            // Recebendo do Servidor
+            // InputStream input = socket.getInputStream();
+            // BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+            // Enviando ao Servidor
+            OutputStream output = socket.getOutputStream();
+            PrintWriter writer = new PrintWriter(output,true);
 
             System.out.println("╔═════════════════════════════════════════╗");
             System.out.println("║ BEM VINDO AO GERÊNCIADOR DE E-COMMERCES ║");
@@ -32,6 +37,7 @@ public class Client {
             System.out.print("Deseja Logar ou se Cadastrar no Sistema? [login/sign up]: ");
             message = in.nextLine();
             if(message.equals("login")){
+                
                 System.out.print("Por favor, Digite o seu nome de usuário: ");
                 message = in.nextLine();
                     
@@ -40,7 +46,7 @@ public class Client {
 
                 //Enviando para o Servidor
                 String userCheck = "user:" + message + ":" + pass;
-                sendToServer(socket,userCheck);
+                writer.println(userCheck);
 
             }else{
                 if(message.equals("sign up")){
@@ -48,17 +54,16 @@ public class Client {
                     nomeCliente = in.nextLine();
                     System.out.print("Digite o seu CPF para cadastro: ");
                     cpf = in.next();
-                    System.out.println("Seus Dados: \n");
-                    System.out.println("Nome: " + nomeCliente);
-                    System.out.println("CPF: " + cpf);
                     dataConcat = "data:" + nomeCliente + ":" + cpf;
-                    sendToServer(socket,dataConcat);
+                    writer.println(dataConcat);
                 }
             }
         
            
             while(connection){
                 //Recebe dados do Servidor
+                InputStream input = socket.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(input));
                 String receive = reader.readLine();
 
                 if(receive.equals("Desculpe, chegou o limite de usuarios no momento")){
@@ -67,13 +72,21 @@ public class Client {
                 }
                 if(receive.equals("created")){
                     System.out.println("Sua conta foi criada com Sucesso!");
-                    System.out.println("Sua senha de acesso é " + cpf + " !\n");
-                    options(socket);
+                    System.out.println("➤ USUÁRIO: " + nomeCliente);
+                    System.out.println("➤ SENHA: " + cpf);
+                    System.out.println("Anote esses dados para futuro login\n\n");
+                    String selection = options();
+                    System.out.println("Entrada de Retorno: " + selection);
+                    writer.println(selection);
+                    continue;
                     
                 }
                 if(receive.equals("granted")){
                     System.out.println("Bem vindo de volta " + nomeCliente);
-                    options(socket);
+                    String selection = options();
+                    System.out.println("Entrada de Retorno: " + selection);
+                    writer.println(selection);
+                    continue;
                 }
                 if(receive.substring(0,5).equals("error")){
                     String data[] = receive.split(":");
@@ -100,7 +113,7 @@ public class Client {
         }
     }
 
-    public static void options(Socket socket){
+    public static String options(){
         Scanner in = new Scanner(System.in);
         System.out.println("Como Deseja interagir no Sistema?\n");
         System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
@@ -108,15 +121,6 @@ public class Client {
         System.out.println("❱ Sou Cliente e desejo [verificar] meus pedidos.");
         System.out.println("\nDigite sua opção desejada [vincular/comprar/verificar]: ");
         String select = in.next();
-        sendToServer(socket,select);
+        return select;
     }
-    public static void sendToServer(Socket socket,String data){
-        //Envia dados para o Servidor
-        try{
-            OutputStream output = socket.getOutputStream();
-            PrintWriter writer = new PrintWriter(output,true);
-            writer.println(data);
-        }catch(Exception e){}
-
-    } 
 }
