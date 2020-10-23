@@ -87,22 +87,23 @@ public class Ecommerce extends Thread {
     public void getProdutosDatabase(){
         for(int i = 0 ; i < this.db.size() ; i++){
             System.out.println("\n");
-            System.out.println("\033[0;33m E-COMMERCE " + this.db.get(i).getNome());
-            System.out.println("\033[0;33m╭───────────────────────────────╮");
-            System.out.println("\033[0;33m| Banco de Dados dos Produtos   |");
-            System.out.println("\033[0;33m╰───────────────────────────────╯");
+            System.out.println("\033[0;34m E-COMMERCE " + this.db.get(i).getNome());
+            System.out.println("\033[0;34m╭───────────────────────────────╮");
+            System.out.println("\033[0;34m| Banco de Dados dos Produtos   |");
+            System.out.println("\033[0;34m╰───────────────────────────────╯");
             System.out.println("\n");
             ArrayList<Produto> aux = this.db.get(i).getProds();
             for(int j = 0 ; j < aux.size() ; j++){
-                System.out.println("\033[0;33m❱ PRODUTO: " + aux.get(j).getNome() + " | ID: " + aux.get(j).getId() + " | PREÇO: " + aux.get(j).getPreco() + "\033[0m");
+                System.out.println("\033[0;34m❱ PRODUTO: " + aux.get(j).getNome() + " | ID: " + aux.get(j).getId() + " | PREÇO: " + aux.get(j).getPreco() + "\033[0m");
             }
         }
     }
 
     public void addToProdsDatabase(Produto prod, String eco){
         for(int i = 0 ; i < this.db.size() ; i++){
-            if(db.get(i).getName().equals(eco)){
-                db.get(i).getProds().add(prod);
+            System.out.println(this.db.get(i).getNome());
+            if(this.db.get(i).getNome().equals(eco)){
+                this.db.get(i).getProds().add(prod);
             }
         }
     }

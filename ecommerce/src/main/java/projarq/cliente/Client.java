@@ -81,7 +81,6 @@ public class Client {
                     System.out.println("➤ SENHA: " + cpf);
                     System.out.println("Anote esses dados para futuro login\n\n");
                     String selection = options();
-                    System.out.println("Entrada de Retorno: " + selection);
                     writer.println(selection);
                     continue;
                     
@@ -115,14 +114,17 @@ public class Client {
                     continue;
                 }
                 if(receive.equals("pedidos")){
-                    System.out.println("Selecionado Verificar!");
+                    System.out.println("Selecionado Pedidos!");
                 }   
                 if(receive.equals("eco created")){
                     System.out.println("\nE-commerce " + econame + " criado com Sucesso!");
                     String selection = options2();
-                    System.out.println("Saida: " + selection);
                     writer.println(selection);
                     continue;
+                }
+                if(receive.equals("reset")){
+                    String selection = options2();
+                    writer.println(selection);
                 }
             }
             in.close();
@@ -139,8 +141,8 @@ public class Client {
         Scanner in = new Scanner(System.in);
         System.out.println("Como Deseja interagir no Sistema?\n");
         System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
-        System.out.println("❱ Desejo Cadastrar [produtos].");
-        System.out.println("❱ Desejo Verificar todos os [pedidos]");
+        System.out.println("❱ Desejo Cadastrar [produto].");
+        System.out.println("❱ Desejo Verificar os [pedido]");
         System.out.println("❱ [sair] do Sistema");
         System.out.print("\nDigite sua opção desejada: ");
         String select = in.next();
@@ -150,7 +152,8 @@ public class Client {
         Scanner in = new Scanner(System.in);
         System.out.println("O que deseja fazer no E-Commerce?\n");
         System.out.println("❱ Cadastrar [produto].");
-        System.out.println("❱ Verificar [pedidos].");
+        System.out.println("❱ Verificar [pedido].");
+        System.out.println("❱ [sair].");
         System.out.print("\nDigite sua opção desejada: ");
         String select = in.next();
         return select;

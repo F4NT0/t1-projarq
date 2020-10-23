@@ -50,14 +50,13 @@ public class Server {
                     }
                     // Criar Produtos
                     if(text.equals("produto")){
-                        System.out.println(text);
                         writer.println("produtos");
                         continue;
                     }
                     // Verificar Pedidos
-                    if(text.equals("verificar")){
-                        System.out.println("Escolhido Verificar");
-                        writer.println("verificar");
+                    if(text.equals("pedido")){
+                        System.out.println("Escolhido Pedido");
+                        writer.println("pedidos");
                         continue;
                     }
 
@@ -102,6 +101,7 @@ public class Server {
 
                     // Criar Produto
                     if(text.substring(0,4).equals("prod")){
+                        System.out.println("Entrou aqui");
                         String prod[] = new String[5];
                         prod = text.split(":");
                         double preco = Double.parseDouble(prod[4]);
@@ -109,6 +109,7 @@ public class Server {
                         ecommerceDatabase.addToProdsDatabase(produto,prod[1]);
                         ecommerceDatabase.getProdutosDatabase();
                         prodAux++;
+                        writer.println("reset");
                         continue;
                     }
 
