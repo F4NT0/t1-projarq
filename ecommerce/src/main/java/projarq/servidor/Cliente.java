@@ -26,12 +26,13 @@ public class Cliente {
     public void clienteDatabase(Cliente cl){this.db.add(cl);}
 
     public void getDatabase(){
-        System.out.println("╭────────────────────────────╮");
-        System.out.println("| Banco de Dados de Clientes |");
-        System.out.println("╰────────────────────────────╯");
+        System.out.println("\n");
+        System.out.println("\033[0;33m╭────────────────────────────╮");
+        System.out.println("\033[0;33m| Banco de Dados de Clientes |");
+        System.out.println("\033[0;33m╰────────────────────────────╯");
         System.out.println("\n");
         for(Cliente valor : db){
-            System.out.println("❱ CLIENTE: " + valor.getNome() + " | SENHA: " + valor.getCpf());
+            System.out.println("\033[0;33m❱ CLIENTE: " + valor.getNome() + " | SENHA: " + valor.getCpf());
         }
     }
 

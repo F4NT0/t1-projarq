@@ -24,10 +24,6 @@ public class Client {
             InputStream input = socket.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
-            //Envia dados para o Servidor
-            OutputStream output = socket.getOutputStream();
-            PrintWriter writer = new PrintWriter(output,true);
-
             System.out.println("╔═════════════════════════════════════════╗");
             System.out.println("║ BEM VINDO AO GERÊNCIADOR DE E-COMMERCES ║");
             System.out.println("╚═════════════════════════════════════════╝");
@@ -44,7 +40,7 @@ public class Client {
 
                 //Enviando para o Servidor
                 String userCheck = "user:" + message + ":" + pass;
-                writer.println(userCheck);
+                sendToServer(socket,userCheck);
 
             }else{
                 if(message.equals("sign up")){
@@ -56,7 +52,7 @@ public class Client {
                     System.out.println("Nome: " + nomeCliente);
                     System.out.println("CPF: " + cpf);
                     dataConcat = "data:" + nomeCliente + ":" + cpf;
-                    writer.println(dataConcat);
+                    sendToServer(socket,dataConcat);
                 }
             }
         
@@ -71,15 +67,27 @@ public class Client {
                 }
                 if(receive.equals("created")){
                     System.out.println("Sua conta foi criada com Sucesso!");
-                    System.out.println("Sua senha de acesso é " + cpf + " !");
+                    System.out.println("Sua senha de acesso é " + cpf + " !\n");
+                    options(socket);
+                    
                 }
                 if(receive.equals("granted")){
                     System.out.println("Bem vindo de volta " + nomeCliente);
+                    options(socket);
                 }
                 if(receive.substring(0,5).equals("error")){
                     String data[] = receive.split(":");
                     System.out.println("Login Falhou!");
                     System.out.println("Cliente: " + data[1] + " / Senha: " + data[2]);
+                }
+                if(receive.equals("vincular")){
+                    System.out.println("Selecionado Vincular!");
+                }
+                if(receive.equals("comprar")){
+                    System.out.println("Selecionado Comprar!");
+                }
+                if(receive.equals("verificar")){
+                    System.out.println("Selecionado Verificar!");
                 }
             }
             in.close();
@@ -91,4 +99,24 @@ public class Client {
             System.err.println("I/O ERROR! " + e);
         }
     }
+
+    public static void options(Socket socket){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Como Deseja interagir no Sistema?\n");
+        System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
+        System.out.println("❱ Sou Cliente e desejo [comprar] produtos.");
+        System.out.println("❱ Sou Cliente e desejo [verificar] meus pedidos.");
+        System.out.println("\nDigite sua opção desejada [vincular/comprar/verificar]: ");
+        String select = in.next();
+        sendToServer(socket,select);
+    }
+    public static void sendToServer(Socket socket,String data){
+        //Envia dados para o Servidor
+        try{
+            OutputStream output = socket.getOutputStream();
+            PrintWriter writer = new PrintWriter(output,true);
+            writer.println(data);
+        }catch(Exception e){}
+
+    } 
 }

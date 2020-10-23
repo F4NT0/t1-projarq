@@ -55,6 +55,22 @@ public class Server {
                     clientesDatabase.getDatabase();
                 }
 
+                // Criar e-commerce
+                if(text.equals("vincular")){
+                    System.out.println("Escolhido Vincular");
+                    writer.println("vincular");
+                }
+                // Fazer Compras
+                if(text.equals("comprar")){
+                    System.out.println("Escolhido Comprar");
+                    writer.println("comprar");
+                }
+                // Verificar Pedidos
+                if(text.equals("verificar")){
+                    System.out.println("Escolhido Verificar");
+                    writer.println("verificar");
+                }
+
                 
                 
                 
