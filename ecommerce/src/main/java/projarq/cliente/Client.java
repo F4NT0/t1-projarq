@@ -114,7 +114,8 @@ public class Client {
                     continue;
                 }
                 if(receive.equals("pedidos")){
-                    System.out.println("Selecionado Pedidos!");
+                    String pedido1 = options3(econame);
+                    writer.println(pedido1);
                 }   
                 if(receive.equals("eco created")){
                     System.out.println("\nE-commerce " + econame + " criado com Sucesso!");
@@ -137,25 +138,35 @@ public class Client {
         }
     }
 
+    // Interação com dados gerais
     public static String options(){
         Scanner in = new Scanner(System.in);
         System.out.println("Como Deseja interagir no Sistema?\n");
         System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
-        System.out.println("❱ Desejo Cadastrar [produto].");
-        System.out.println("❱ Desejo Verificar os [pedido]");
+        System.out.println("❱ Desejo Cadastrar [produtos].");
+        System.out.println("❱ Desejo Verificar os [pedidos]");
         System.out.println("❱ [sair] do Sistema");
         System.out.print("\nDigite sua opção desejada: ");
         String select = in.next();
         return select;
     }
+
+    // Após vincular e-commerce
     public static String options2(){
         Scanner in = new Scanner(System.in);
-        System.out.println("O que deseja fazer no E-Commerce?\n");
-        System.out.println("❱ Cadastrar [produto].");
-        System.out.println("❱ Verificar [pedido].");
+        System.out.println("\nO que deseja fazer no E-Commerce?\n");
+        System.out.println("❱ Cadastrar [produtos].");
+        System.out.println("❱ Verificar [pedidos].");
+        System.out.println("❱ [vincular] outro E-Commerce.");
         System.out.println("❱ [sair].");
         System.out.print("\nDigite sua opção desejada: ");
         String select = in.next();
         return select;
+    }
+
+    // Fazendo um Pedido
+    public static String options3(String eco){
+        String pedido1 = "ped:" + eco + ":1:Fulano:Ativo:35:02/02/2020";
+        return pedido1;   
     }
 }

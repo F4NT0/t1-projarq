@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Ecommerce extends Thread {
     private int idEcommerce;
     private String nome;
-    private ArrayList<Pedido> pedidos;
+    private ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
     private ArrayList<Ecommerce> db = new ArrayList<Ecommerce>();
     private ArrayList<Produto> prods = new ArrayList<Produto>();
 
@@ -13,7 +13,6 @@ public class Ecommerce extends Thread {
     public Ecommerce(int idEcommerce, String nome){
         this.idEcommerce = idEcommerce;
         this.nome = nome;
-        pedidos = new ArrayList<Pedido>();
     }
 
     // Construtor 2
@@ -23,50 +22,8 @@ public class Ecommerce extends Thread {
 
     public String getNome(){return nome;}
 
-    public void adicionaPedido(Pedido p){pedidos.add(p);}
-
     public ArrayList<Produto> getProds(){return prods;}
-
-    public void requisicao(int idCliente,int opcao){
-        if(opcao == 1){//mostrar status dos pedidos do cliente
-            ArrayList<Pedido> lista = pedidosDoCliente(idCliente);
-            for (Pedido ped:lista) {
-                System.out.println("Id: "+ped.getIdPedido()+"    Status: "+ped.getStatus());
-            }
-        }else if(opcao == 2){
-            gerarRelatorio(idCliente);
-        }else{
-            System.out.println("Opção não encontrada.");
-        }
-    }
-
-    public ArrayList<Pedido> pedidosDoCliente(int idCliente){
-        ArrayList<Pedido> ret = new ArrayList<Pedido>();
-        for (Pedido pedido: pedidos) {
-            if(pedido.getIdCliente() == idCliente){//achou o pedido daquele cliente
-                ret.add(pedido);
-            }
-        }
-        System.out.println("Ecommerce: "+this.nome);
-        System.out.println("Pedidos do cliente: "+idCliente);
-        for (Pedido ped:ret) {
-            System.out.println("Pedido: "+ped.getIdPedido()+"  Status: "+ped.getStatus());
-        }
-        return ret;
-    }
-
-    public void gerarRelatorio(int idCliente){
-        ArrayList<Pedido> lista = new ArrayList<Pedido>();
-        for (Pedido pedido: pedidos) {
-            if(pedido.getIdCliente() == idCliente){//achou o pedido daquele cliente
-                lista.add(pedido);
-            }
-        }
-        System.out.println("Ecommerce: "+this.nome+"\n");
-        for(Pedido ped: lista){
-            System.out.println("Data: "+ped.getData()+"  Agilidade: "+ped.getPrasoEntregado()+"  Qtd Dias Previstos:"+ped.getPrasoMaximoEntrega());
-        }
-    }
+    public ArrayList<Pedido> getPedidos(){return pedidos;}
 
     // Banco de Dados dos E-commerces
 
@@ -104,6 +61,30 @@ public class Ecommerce extends Thread {
             System.out.println(this.db.get(i).getNome());
             if(this.db.get(i).getNome().equals(eco)){
                 this.db.get(i).getProds().add(prod);
+            }
+        }
+    }
+
+    public void getPedidosDatabase(){
+        for(int i = 0 ; i < this.db.size() ; i++){
+            System.out.println("\n");
+            System.out.println("\033[0;31m E-COMMERCE " + this.db.get(i).getNome());
+            System.out.println("\033[0;31m╭──────────────────────────────╮");
+            System.out.println("\033[0;31m| Banco de Dados dos Pedidos   |");
+            System.out.println("\033[0;31m╰──────────────────────────────╯");
+            System.out.println("\n");
+            ArrayList<Pedido> aux = this.db.get(i).getPedidos();
+            for(int j = 0 ; j < aux.size() ; j++){
+                System.out.println("\033[0;31m❱ CLIENTE: " + aux.get(j).getNomeCliente() + " | ID: " + aux.get(j).getIdPedido() + " | ENTREGA: " + aux.get(j).getPrasoMaximoEntrega() + "\033[0m");
+            }
+        }
+    }
+
+    public void addToPedidosDatabase(Pedido ped, String eco){
+        for(int i = 0 ; i < this.db.size() ; i++){
+            System.out.println(this.db.get(i).getNome());
+            if(this.db.get(i).getNome().equals(eco)){
+                this.db.get(i).getPedidos().add(ped);
             }
         }
     }

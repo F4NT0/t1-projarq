@@ -4,21 +4,25 @@ import java.util.ArrayList;
 
 public class Pedido {
     private int idPedido;
-    private int idCliente;
+    private String nomeCliente;
     private String status;
+    private String eco;
     private String data; //data do pedido
     private int prasoMaximoEntrega;//dias maximos da entrega ate quando deve ser entregue
     private int prasoEntregado;//dias que demoraram para serem entregues
     private ArrayList<Produto> listaProdutos;
 
-    public Pedido(int idPedido, int idCliente, String status, int prasoMaximoEntrega, String data){
+    public Pedido(int idPedido, String eco, String nomeCliente, String status, int prasoMaximoEntrega, String data){
         this.idPedido = idPedido;
-        this.idCliente = idCliente;
+        this.eco = eco;
+        this.nomeCliente = nomeCliente;
         this.status = status;
         this.prasoMaximoEntrega = prasoMaximoEntrega;
         this.data = data;
         listaProdutos = new ArrayList<Produto>();
     }
+
+    public Pedido(){}
 
     public int getIdPedido() {
         return idPedido;
@@ -26,8 +30,8 @@ public class Pedido {
     public String getStatus() {
         return status;
     }
-    public int getIdCliente() {
-        return idCliente;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
     public int getPrasoMaximoEntrega() {
         return prasoMaximoEntrega;

@@ -49,13 +49,13 @@ public class Server {
                         continue;
                     }
                     // Criar Produtos
-                    if(text.equals("produto")){
+                    if(text.equals("produtos")){
                         writer.println("produtos");
                         continue;
                     }
                     // Verificar Pedidos
-                    if(text.equals("pedido")){
-                        System.out.println("Escolhido Pedido");
+                    if(text.equals("pedidos")){
+                        System.out.println("Escolhido Pedidos");
                         writer.println("pedidos");
                         continue;
                     }
@@ -84,6 +84,17 @@ public class Server {
                         }else{
                             writer.println("error");
                         }
+                        continue;
+                    }
+
+                    //Pedidos Cadastrados
+                    if(text.substring(0,3).equals("ped")){
+                        String ped[] = new String[7];
+                        int id = Integer.parseInt(ped[2]);
+                        int tempo = Integer.parseInt(ped[5]);
+                        Pedido pedido = new Pedido(id,ped[1],ped[3],ped[4],tempo,ped[6]);
+                        ecommerceDatabase.addToPedidosDatabase(pedido,ped[1]);
+                        writer.println("reset");
                         continue;
                     }
 
