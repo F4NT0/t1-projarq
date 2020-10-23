@@ -17,10 +17,7 @@ ecommerce/
     |                           |
     |                           | ⮕ servidor/
     |                           |       | ⮕ Cliente.java
-    |                           |       | ⮕ Database.java
-    |                           |       | ⮕ database.json
     |                           |       | ⮕ Ecommerce.java
-    |                           |       | ⮕ Main.java
     |                           |       | ⮕ Pedido.java
     |                           |       | ⮕ Produto.java
     |                           |       | ⮕ Server.java
@@ -48,10 +45,7 @@ Nome do Arquivo|Para que serve|Linguagem|Status|Atualizado
 **servidor/Produto.java**|Classe dos Objetos Produto|Java|✅|21/10
 **servidor/Pedido.java**|Classe dos Objetos Pedido|Java|✅|21/10
 **servidor/Ecommerce.java**|Classe dos Objetos Ecommerce|Java|✅|21/10
-**servidor/Database.java**|Classe de Acesso ao JSON dos E-commerces cadastrados|Java|❌|21/10
-**servidor/database.json**|Banco de Dados simples com informações dos E-commerces cadastrados|JSON|✅|21/10
 **servidor/Server.java**|Servidor do Gerenciador de E-commerces|Java|✅|21/10
 **servidor/Cliente.java**|Classe dos Objetos Cliente|Java|✅|21/10
 **cliente/Client.java**|Criador de Clientes para acessarem o Servidor|Java|✅|21/10
-**servidor/Main.java**|Iniciador dos Processos definidos(_DISABLED_)|Java|❌|21/10
 
