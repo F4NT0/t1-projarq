@@ -55,7 +55,6 @@ public class Server {
                     }
                     // Verificar Pedidos
                     if(text.equals("pedidos")){
-                        System.out.println("Escolhido Pedidos");
                         writer.println("pedidos");
                         continue;
                     }
@@ -90,11 +89,13 @@ public class Server {
                     //Pedidos Cadastrados
                     if(text.substring(0,3).equals("ped")){
                         String ped[] = new String[7];
+                        ped = text.split(":");
                         int id = Integer.parseInt(ped[2]);
                         int tempo = Integer.parseInt(ped[5]);
                         Pedido pedido = new Pedido(id,ped[1],ped[3],ped[4],tempo,ped[6]);
                         ecommerceDatabase.addToPedidosDatabase(pedido,ped[1]);
                         writer.println("reset");
+                        ecommerceDatabase.getPedidosDatabase();
                         continue;
                     }
 
@@ -112,7 +113,6 @@ public class Server {
 
                     // Criar Produto
                     if(text.substring(0,4).equals("prod")){
-                        System.out.println("Entrou aqui");
                         String prod[] = new String[5];
                         prod = text.split(":");
                         double preco = Double.parseDouble(prod[4]);

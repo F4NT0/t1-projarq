@@ -76,7 +76,7 @@ public class Client {
                     connection = false;
                 }
                 if(receive.equals("created")){
-                    System.out.println("Sua conta foi criada com Sucesso!");
+                    System.out.println("\nSua conta foi criada com Sucesso!");
                     System.out.println("➤ USUÁRIO: " + nomeCliente);
                     System.out.println("➤ SENHA: " + cpf);
                     System.out.println("Anote esses dados para futuro login\n\n");
@@ -141,7 +141,7 @@ public class Client {
     // Interação com dados gerais
     public static String options(){
         Scanner in = new Scanner(System.in);
-        System.out.println("Como Deseja interagir no Sistema?\n");
+        System.out.println("\nComo deseja interagir no Sistema?\n");
         System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
         System.out.println("❱ Desejo Cadastrar [produtos].");
         System.out.println("❱ Desejo Verificar os [pedidos]");
