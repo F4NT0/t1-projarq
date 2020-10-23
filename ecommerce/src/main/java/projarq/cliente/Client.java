@@ -16,6 +16,7 @@ public class Client {
         String nomeCliente = "";
         String cpf = "";
         String dataConcat;
+        String econame = "";
 
 
 
@@ -66,6 +67,10 @@ public class Client {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(input));
                 String receive = reader.readLine();
 
+                if(receive.equals("exit")){
+                    connection = false;
+                    continue;
+                }
                 if(receive.equals("Desculpe, chegou o limite de usuarios no momento")){
                     System.out.println(receive);
                     connection = false;
@@ -82,25 +87,34 @@ public class Client {
                     
                 }
                 if(receive.equals("granted")){
-                    System.out.println("Bem vindo de volta " + nomeCliente);
+                    System.out.println("\nBem vindo de volta " + nomeCliente);
                     String selection = options();
                     System.out.println("Entrada de Retorno: " + selection);
                     writer.println(selection);
                     continue;
                 }
-                if(receive.substring(0,5).equals("error")){
+                if(receive.equals("error")){
                     String data[] = receive.split(":");
                     System.out.println("Login Falhou!");
-                    System.out.println("Cliente: " + data[1] + " / Senha: " + data[2]);
+                    connection = false;
                 }
                 if(receive.equals("vincular")){
-                    System.out.println("Selecionado Vincular!");
+                    System.out.print("Digite o nome do seu Ecommerce: ");
+                    econame = in.next();
+                    writer.println("eco:" + econame);
+                    continue;
                 }
                 if(receive.equals("comprar")){
                     System.out.println("Selecionado Comprar!");
                 }
                 if(receive.equals("verificar")){
                     System.out.println("Selecionado Verificar!");
+                }
+                if(receive.equals("eco created")){
+                    System.out.println("\nE-commerce " + econame + " criado com Sucesso!");
+                    String selection = options();
+                    writer.println(selection);
+                    continue;
                 }
             }
             in.close();
@@ -119,7 +133,8 @@ public class Client {
         System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
         System.out.println("❱ Sou Cliente e desejo [comprar] produtos.");
         System.out.println("❱ Sou Cliente e desejo [verificar] meus pedidos.");
-        System.out.println("\nDigite sua opção desejada [vincular/comprar/verificar]: ");
+        System.out.println("❱ [sair] do Sistema");
+        System.out.println("\nDigite sua opção desejada [vincular/comprar/verificar/sair]: ");
         String select = in.next();
         return select;
     }

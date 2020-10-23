@@ -9,8 +9,12 @@ public class Server {
    public static void main(String[] args){
         //Variaveis
         String clientData[] = new String[3];
-        Cliente clientesDatabase = new Cliente();
         Cliente clientesOnline[] = new Cliente[4];
+        int ecoAux = 1;
+
+        //Banco de Dados
+        Cliente clientesDatabase = new Cliente();
+        Ecommerce ecommerceDatabase = new Ecommerce();
 
        try(ServerSocket serverSocket = new ServerSocket(8184);){
             System.out.println("Servidor rodando na Porta 8184!");
@@ -32,7 +36,11 @@ public class Server {
                 String text;
                 do{
                     text = reader.readLine();
-                    System.out.println(text);
+
+                    if(text.equals("sair")){
+                        writer.println("exit");
+                        continue;
+                    }
 
                     // Sign Up
                     if(text.substring(0,4).equals("data")){
@@ -53,16 +61,27 @@ public class Server {
                         boolean check = clientesDatabase.checkLogin(clientData[1], cpf);
                         if(check == true){
                             writer.println("granted");
-                            System.out.println("Cliente " + clientData[1] + " Logado com Sucesso!");
+                            System.out.println("\nCliente " + clientData[1] + " Logado com Sucesso!\n");
                         }else{
-                            writer.println("error:"+clientData[1]+":"+clientData[2]);
+                            writer.println("error");
                         }
                         continue;
                     }
 
                     // Criar e-commerce
+                    if(text.substring(0,3).equals("eco")){
+                        String eco[] = new String[2];
+                        eco = text.split(":");
+                        Ecommerce newEco = new Ecommerce(ecoAux,eco[1]);
+                        ecommerceDatabase.addToDatabase(newEco);
+                        writer.println("eco created");
+                        ecommerceDatabase.getDatabase();
+                        ecoAux++;
+                        continue;
+                    }
+
+                    // Criar e-commerce
                     if(text.equals("vincular")){
-                        System.out.println("Escolhido Vincular");
                         writer.println("vincular");
                         continue;
                     }
