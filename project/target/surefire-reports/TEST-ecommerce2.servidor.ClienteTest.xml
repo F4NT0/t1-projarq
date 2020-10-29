@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ecommerce2.cliente.ClientTest" time="0.12" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ecommerce2.servidor.ClienteTest" time="0.14" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -52,14 +52,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="shouldStartClient" classname="ecommerce2.cliente.ClientTest" time="0.045"/>
-  <testcase name="shouldReturnSairOptions2" classname="ecommerce2.cliente.ClientTest" time="0.012"/>
-  <testcase name="shouldReturnPedidosOptions" classname="ecommerce2.cliente.ClientTest" time="0.007"/>
-  <testcase name="shouldReturnProdutosOptions" classname="ecommerce2.cliente.ClientTest" time="0.006"/>
-  <testcase name="shouldReturnVincularOptions2" classname="ecommerce2.cliente.ClientTest" time="0.002"/>
-  <testcase name="shouldReturnVincularOptions" classname="ecommerce2.cliente.ClientTest" time="0.005"/>
-  <testcase name="shouldReturnStringOptions3" classname="ecommerce2.cliente.ClientTest" time="0.011"/>
-  <testcase name="shouldReturnSairOptions" classname="ecommerce2.cliente.ClientTest" time="0.004"/>
-  <testcase name="shouldReturnProdutosOptions2" classname="ecommerce2.cliente.ClientTest" time="0.008"/>
-  <testcase name="shouldReturnPedidosOptions2" classname="ecommerce2.cliente.ClientTest" time="0.002"/>
+  <testcase name="shoulCheckLoginFalse" classname="ecommerce2.servidor.ClienteTest" time="0.042"/>
+  <testcase name="shouldGetCpf" classname="ecommerce2.servidor.ClienteTest" time="0.003"/>
+  <testcase name="shouldSetCpf" classname="ecommerce2.servidor.ClienteTest" time="0.006"/>
+  <testcase name="shouldSetId" classname="ecommerce2.servidor.ClienteTest" time="0.002"/>
+  <testcase name="shouldGetName" classname="ecommerce2.servidor.ClienteTest" time="0.003"/>
+  <testcase name="shouldAddClientToDatabase" classname="ecommerce2.servidor.ClienteTest" time="0.036"/>
+  <testcase name="shouldCheckLoginClient1" classname="ecommerce2.servidor.ClienteTest" time="0.001"/>
+  <testcase name="shouldCheckLoginClient2" classname="ecommerce2.servidor.ClienteTest" time="0.001"/>
+  <testcase name="shouldGetIdClient" classname="ecommerce2.servidor.ClienteTest" time="0.001"/>
+  <testcase name="shouldSetName" classname="ecommerce2.servidor.ClienteTest" time="0.002"/>
 </testsuite>

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: ecommerce2.cliente.ClientTest
+Test set: ecommerce2.servidor.ClienteTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 s - in ecommerce2.cliente.ClientTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.14 s - in ecommerce2.servidor.ClienteTest
