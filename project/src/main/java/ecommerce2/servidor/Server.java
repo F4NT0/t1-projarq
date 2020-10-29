@@ -1,24 +1,20 @@
-package ecommerce.src.main.java.projarq.servidor;
+package ecommerce2.servidor;
 
 import java.io.*;
 import java.net.*;
-
-import ecommerce.src.main.java.projarq.servidor.*;
+import ecommerce2.servidor.*;
 
 public class Server {
-   public static void main(String[] args){
-        //Variaveis
+    public static void main(String args[]){
         String clientData[] = new String[3];
-        Cliente clientesOnline[] = new Cliente[4];
+        // Cliente clientesOnline[] = new Cliente[4];
         int ecoAux = 1;
         int userAux = 1;
         int prodAux = 1;
-
-        //Banco de Dados
         Cliente clientesDatabase = new Cliente();
         Ecommerce ecommerceDatabase = new Ecommerce();
-
-       try(ServerSocket serverSocket = new ServerSocket(8184);){
+        
+        try(ServerSocket serverSocket = new ServerSocket(8184);){
             System.out.println("Servidor rodando na Porta 8184!");
             while(true){
                 Socket socket = serverSocket.accept();
@@ -30,12 +26,8 @@ public class Server {
                 // reader recebe dados do cliente
                 InputStream input = socket.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-
-                /*********************
-                * LIDANDO COM RECEIVE
-                **********************/
-
                 String text;
+                
                 do{
                     text = reader.readLine();
 
@@ -48,18 +40,17 @@ public class Server {
                         writer.println("vincular");
                         continue;
                     }
-                    // Criar Produtos
+
                     if(text.equals("produtos")){
                         writer.println("produtos");
                         continue;
                     }
-                    // Verificar Pedidos
+
                     if(text.equals("pedidos")){
                         writer.println("pedidos");
                         continue;
                     }
 
-                    // Sign Up
                     if(text.substring(0,4).equals("data")){
                         clientData = text.split(":");
                         int cpf = Integer.parseInt(clientData[2]);
@@ -72,7 +63,6 @@ public class Server {
                         continue;
                     }
 
-                    // Login
                     if(text.substring(0,4).equals("user")){
                         clientData = text.split(":");
                         int cpf = Integer.parseInt(clientData[2]);
@@ -86,39 +76,36 @@ public class Server {
                         continue;
                     }
 
-                    //Pedidos Cadastrados
                     if(text.substring(0,3).equals("ped")){
                         String ped[] = new String[7];
                         ped = text.split(":");
                         int id = Integer.parseInt(ped[2]);
                         int tempo = Integer.parseInt(ped[5]);
                         Pedido pedido = new Pedido(id,ped[1],ped[3],ped[4],tempo,ped[6]);
-                        ecommerceDatabase.addToPedidosDatabase(pedido,ped[1]);
+                        ecommerceDatabase.addPedidosToDatabase(pedido,ped[1]);
                         writer.println("reset");
-                        ecommerceDatabase.getPedidosDatabase();
+                        ecommerceDatabase.visualizePedidosDatabase();
                         continue;
                     }
 
-                    // Criar e-commerce
                     if(text.substring(0,3).equals("eco")){
                         String eco[] = new String[2];
                         eco = text.split(":");
                         Ecommerce newEco = new Ecommerce(ecoAux,eco[1]);
-                        ecommerceDatabase.addToDatabase(newEco);
+                        ecommerceDatabase.addEcommerceToDatabase(newEco);
                         writer.println("eco created");
-                        ecommerceDatabase.getDatabase();
+                        ecommerceDatabase.visualizeEcommerceDatabase();
                         ecoAux++;
                         continue;
                     }
 
-                    // Criar Produto
                     if(text.substring(0,4).equals("prod")){
                         String prod[] = new String[5];
                         prod = text.split(":");
                         double preco = Double.parseDouble(prod[4]);
                         Produto produto = new Produto(prodAux,prod[1],prod[2],prod[3],preco);
-                        ecommerceDatabase.addToProdsDatabase(produto,prod[1]);
-                        ecommerceDatabase.getProdutosDatabase();
+                        ecommerceDatabase.addProdutosToDatabase(produto,prod[1]);
+                        ecommerceDatabase.visualizeProdutosDatabase();
                         prodAux++;
                         writer.println("reset");
                         continue;
@@ -129,6 +116,5 @@ public class Server {
        }catch(IOException e){
            System.err.println(e);
        }
-   }
-    
+    }
 }

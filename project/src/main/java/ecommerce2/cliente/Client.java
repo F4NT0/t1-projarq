@@ -5,21 +5,16 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Client{
+    
+    public static void main(String args[]){
 
-    //Atributos
-    private boolean connection = true;
-    private String message;
-    private String nomeCliente = "";
-    private String cpf = "";
-    private String dataConcat;
-    private String econame = "";
-
-    public Client(){}
-
-    /**
-     * Criando Conexão do Cliente
-     */
-    public void clientConnection(){
+        //Atributos
+        boolean connection = true;
+        String message;
+        String nomeCliente = "";
+        String cpf = "";
+        String dataConcat;
+        String econame = "";
         try(Socket socket = new Socket("localhost",8184)){
 
             Scanner in = new Scanner(System.in);
@@ -143,12 +138,11 @@ public class Client{
             System.err.println("I/O ERROR! " + e);
         }
     }
-
     /**
      * Primeira Interação do Cliente
      * @return
      */
-    public String options(){
+    public static String options(){
         Scanner in = new Scanner(System.in);
         System.out.println("\nComo deseja interagir no Sistema?\n");
         System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
@@ -165,7 +159,7 @@ public class Client{
      * Segunda Interação do Cliente
      * @return
      */
-    public String options2(){
+    public static String options2(){
         Scanner in = new Scanner(System.in);
         System.out.println("\nO que deseja fazer no E-Commerce?\n");
         System.out.println("❱ Cadastrar [produtos].");
@@ -183,13 +177,8 @@ public class Client{
      * @param eco
      * @return
      */
-    public String options3(String eco){
+    public static String options3(String eco){
         String pedido1 = "ped:" + eco + ":1:Fulano:Ativo:35:02/02/2020";
         return pedido1;   
-    }
-
-    public void main(String[] args){
-        Client cliente = new Client();
-        cliente.clientConnection();
     }
 }
