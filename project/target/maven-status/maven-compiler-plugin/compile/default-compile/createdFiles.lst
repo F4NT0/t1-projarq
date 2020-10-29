@@ -1,3 +1,5 @@
 ecommerce2/servidor/Cliente.class
+ecommerce2/servidor/Ecommerce.class
 ecommerce2/servidor/Produto.class
+ecommerce2/servidor/Pedido.class
 ecommerce2/cliente/Client.class

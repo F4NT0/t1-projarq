@@ -7,9 +7,9 @@ public class Pedido {
     private String nomeCliente;
     private String status;
     private String eco;
-    private String data; //data do pedido
-    private int prasoMaximoEntrega;//dias maximos da entrega ate quando deve ser entregue
-    private int prasoEntregado;//dias que demoraram para serem entregues
+    private String data;
+    private int prasoMaximoEntrega;
+    private int prasoEntregado;
     private ArrayList<Produto> listaProdutos;
 
     public Pedido(int idPedido, String eco, String nomeCliente, String status, int prasoMaximoEntrega, String data){
