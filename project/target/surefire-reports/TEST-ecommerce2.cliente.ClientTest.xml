@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ecommerce2.cliente.ClientTest" time="0.12" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ecommerce2.cliente.ClientTest" time="0.113" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-14-oracle/lib"/>
-    <property name="sun.java.command" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/surefire/surefirebooter4536395616987327695.jar /home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/surefire 2020-10-28T21-48-14_714-jvmRun1 surefire10623738660030354703tmp surefire_012751821524317592097tmp"/>
+    <property name="sun.java.command" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/surefire/surefirebooter2408168331794903609.jar /home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/surefire 2020-10-29T00-21-13_199-jvmRun1 surefire12679199528291650274tmp surefire_06328750160410487057tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/test-classes:/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/classes:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/home/f4nt0/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/f4nt0/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/home/f4nt0/.m2/repository/org/hsqldb/hsqldb/2.5.0/hsqldb-2.5.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -28,7 +28,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/surefire/surefirebooter4536395616987327695.jar"/>
+    <property name="surefire.real.class.path" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/surefire/surefirebooter2408168331794903609.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="14.0.2+12-46"/>
     <property name="user.name" value="f4nt0"/>
@@ -52,14 +52,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="shouldStartClient" classname="ecommerce2.cliente.ClientTest" time="0.045"/>
+  <testcase name="shouldStartClient" classname="ecommerce2.cliente.ClientTest" time="0.028"/>
   <testcase name="shouldReturnSairOptions2" classname="ecommerce2.cliente.ClientTest" time="0.012"/>
-  <testcase name="shouldReturnPedidosOptions" classname="ecommerce2.cliente.ClientTest" time="0.007"/>
-  <testcase name="shouldReturnProdutosOptions" classname="ecommerce2.cliente.ClientTest" time="0.006"/>
-  <testcase name="shouldReturnVincularOptions2" classname="ecommerce2.cliente.ClientTest" time="0.002"/>
-  <testcase name="shouldReturnVincularOptions" classname="ecommerce2.cliente.ClientTest" time="0.005"/>
-  <testcase name="shouldReturnStringOptions3" classname="ecommerce2.cliente.ClientTest" time="0.011"/>
-  <testcase name="shouldReturnSairOptions" classname="ecommerce2.cliente.ClientTest" time="0.004"/>
-  <testcase name="shouldReturnProdutosOptions2" classname="ecommerce2.cliente.ClientTest" time="0.008"/>
-  <testcase name="shouldReturnPedidosOptions2" classname="ecommerce2.cliente.ClientTest" time="0.002"/>
+  <testcase name="shouldReturnPedidosOptions" classname="ecommerce2.cliente.ClientTest" time="0.012"/>
+  <testcase name="shouldReturnProdutosOptions" classname="ecommerce2.cliente.ClientTest" time="0.007"/>
+  <testcase name="shouldReturnVincularOptions2" classname="ecommerce2.cliente.ClientTest" time="0.01"/>
+  <testcase name="shouldReturnVincularOptions" classname="ecommerce2.cliente.ClientTest" time="0.003"/>
+  <testcase name="shouldReturnStringOptions3" classname="ecommerce2.cliente.ClientTest" time="0.014"/>
+  <testcase name="shouldReturnSairOptions" classname="ecommerce2.cliente.ClientTest" time="0.003"/>
+  <testcase name="shouldReturnProdutosOptions2" classname="ecommerce2.cliente.ClientTest" time="0.002"/>
+  <testcase name="shouldReturnPedidosOptions2" classname="ecommerce2.cliente.ClientTest" time="0.007"/>
 </testsuite>

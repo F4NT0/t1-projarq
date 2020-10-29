@@ -2,9 +2,6 @@ package ecommerce2.servidor;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import jdk.jfr.Timestamp;
-
 import org.junit.jupiter.api.BeforeEach;
 
 public class ClienteTest {
