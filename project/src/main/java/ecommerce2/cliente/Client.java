@@ -90,7 +90,7 @@ public class Client{
                     connection = false;
                 }
                 if(receive.equals("vincular")){
-                    System.out.print("Digite o nome do seu Ecommerce: ");
+                    System.out.println("Digite o nome do seu Ecommerce: ");
                     String econame = in.next();
                     econameSave = econame;
                     writer.println("eco:" + econame);

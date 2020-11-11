@@ -114,8 +114,10 @@ public class Server {
 
                 }while(!text.equals("sair"));
             }
-       }catch(IOException e){
+        }catch(IOException e){
            System.err.println(e);
-       }
+        }catch(NullPointerException e){
+            System.err.println("Null info");
+        }
     }
 }
