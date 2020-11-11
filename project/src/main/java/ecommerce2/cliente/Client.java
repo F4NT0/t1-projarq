@@ -2,6 +2,7 @@ package ecommerce2.cliente;
 
 import java.net.*;
 import java.io.*;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Client{
@@ -14,7 +15,7 @@ public class Client{
         String nomeCliente = "";
         String cpf = "";
         String dataConcat;
-        String econame = "";
+        String econameSave = "";
         try(Socket socket = new Socket("localhost",8184)){
 
             Scanner in = new Scanner(System.in);
@@ -90,7 +91,8 @@ public class Client{
                 }
                 if(receive.equals("vincular")){
                     System.out.print("Digite o nome do seu Ecommerce: ");
-                    econame = in.next();
+                    String econame = in.next();
+                    econameSave = econame;
                     writer.println("eco:" + econame);
                     continue;
                 }
@@ -101,12 +103,12 @@ public class Client{
                     String descProduto = in.next();
                     System.out.print("Digite o preço do Produto: ");
                     String precProduto = in.next();
-                    String concatData = "prod:" + econame + ": " + nomeProduto + ":" + descProduto + ":" + precProduto;
+                    String concatData = "prod:" + econameSave + ": " + nomeProduto + ":" + descProduto + ":" + precProduto;
                     writer.println(concatData);
                     continue;
                 }
                 if(receive.equals("pedidos")){
-                    String pedido1 = options3(econame);
+                    String pedido1 = options3(econameSave);
                     String ped[] = new String[7];
                     ped = pedido1.split(":");
                     System.out.println("--------------------------------");
@@ -119,7 +121,7 @@ public class Client{
                     writer.println(pedido1);
                 }   
                 if(receive.equals("eco created")){
-                    System.out.println("\nE-commerce " + econame + " criado com Sucesso!");
+                    System.out.println("\nE-commerce " + econameSave + " criado com Sucesso!");
                     String selection = options2();
                     writer.println(selection);
                     continue;
@@ -136,6 +138,8 @@ public class Client{
             System.err.println("Server not Found!");
         }catch(IOException e){
             System.err.println("I/O ERROR! " + e);
+        }catch(NoSuchElementException e){
+            System.err.println("Element Doesnt Exist!");
         }
     }
     /**

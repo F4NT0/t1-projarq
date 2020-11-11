@@ -30,11 +30,7 @@ public class Server {
                 
                 do{
                     text = reader.readLine();
-
-                    if(text.equals("sair")){
-                        writer.println("exit");
-                        continue;
-                    }
+                    System.out.println("Entrada: " + text);
 
                     if(text.equals("vincular")){
                         writer.println("vincular");
@@ -48,6 +44,11 @@ public class Server {
 
                     if(text.equals("pedidos")){
                         writer.println("pedidos");
+                        continue;
+                    }
+
+                    if(text.equals("sair")){
+                        writer.println("exit");
                         continue;
                     }
 
