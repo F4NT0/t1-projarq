@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ecommerce2.servidor.ClienteTest" time="0.16" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ecommerce2.servidor.ClienteTest" time="0.279" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/test-classes:/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/classes:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/home/f4nt0/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/f4nt0/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/home/f4nt0/.m2/repository/org/hsqldb/hsqldb/2.5.0/hsqldb-2.5.0.jar:"/>
+    <property name="java.class.path" value="/home/f4nt0/Documents/GIT/t1-projarq/project/target/test-classes:/home/f4nt0/Documents/GIT/t1-projarq/project/target/classes:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/home/f4nt0/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/f4nt0/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/home/f4nt0/.m2/repository/org/hsqldb/hsqldb/2.5.0/hsqldb-2.5.0.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
@@ -13,9 +13,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-14-oracle/lib"/>
-    <property name="sun.java.command" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/surefire/surefirebooter1664739994730191776.jar /home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/surefire 2020-10-29T17-58-53_865-jvmRun1 surefire10791316236707178670tmp surefire_010601731414679977220tmp"/>
+    <property name="sun.java.command" value="/home/f4nt0/Documents/GIT/t1-projarq/project/target/surefire/surefirebooter378401116089267931.jar /home/f4nt0/Documents/GIT/t1-projarq/project/target/surefire 2020-11-25T19-55-58_438-jvmRun1 surefire7064792361606808892tmp surefire_014457791162744518098tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/test-classes:/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/classes:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/home/f4nt0/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/f4nt0/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/home/f4nt0/.m2/repository/org/hsqldb/hsqldb/2.5.0/hsqldb-2.5.0.jar:"/>
+    <property name="surefire.test.class.path" value="/home/f4nt0/Documents/GIT/t1-projarq/project/target/test-classes:/home/f4nt0/Documents/GIT/t1-projarq/project/target/classes:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/home/f4nt0/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/f4nt0/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/home/f4nt0/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/home/f4nt0/.m2/repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/home/f4nt0/.m2/repository/org/hsqldb/hsqldb/2.5.0/hsqldb-2.5.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/f4nt0"/>
     <property name="user.language" value="en"/>
@@ -23,12 +23,12 @@
     <property name="java.version.date" value="2020-07-14"/>
     <property name="java.home" value="/usr/lib/jvm/java-14-oracle"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project"/>
+    <property name="basedir" value="/home/f4nt0/Documents/GIT/t1-projarq/project"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project/target/surefire/surefirebooter1664739994730191776.jar"/>
+    <property name="surefire.real.class.path" value="/home/f4nt0/Documents/GIT/t1-projarq/project/target/surefire/surefirebooter378401116089267931.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="14.0.2+12-46"/>
     <property name="user.name" value="f4nt0"/>
@@ -41,7 +41,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="java.version" value="14.0.2"/>
-    <property name="user.dir" value="/home/f4nt0/Documents/GIT/FACULDADE/t1-projarq/project"/>
+    <property name="user.dir" value="/home/f4nt0/Documents/GIT/t1-projarq/project"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.language.format" value="pt"/>
@@ -52,14 +52,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="shoulCheckLoginFalse" classname="ecommerce2.servidor.ClienteTest" time="0.039"/>
-  <testcase name="shouldGetCpf" classname="ecommerce2.servidor.ClienteTest" time="0.005"/>
+  <testcase name="shoulCheckLoginFalse" classname="ecommerce2.servidor.ClienteTest" time="0.1"/>
+  <testcase name="shouldGetCpf" classname="ecommerce2.servidor.ClienteTest" time="0.002"/>
   <testcase name="shouldSetCpf" classname="ecommerce2.servidor.ClienteTest" time="0.002"/>
-  <testcase name="shouldSetId" classname="ecommerce2.servidor.ClienteTest" time="0.002"/>
-  <testcase name="shouldGetName" classname="ecommerce2.servidor.ClienteTest" time="0.002"/>
-  <testcase name="shouldAddClientToDatabase" classname="ecommerce2.servidor.ClienteTest" time="0.042"/>
-  <testcase name="shouldCheckLoginClient1" classname="ecommerce2.servidor.ClienteTest" time="0.003"/>
-  <testcase name="shouldCheckLoginClient2" classname="ecommerce2.servidor.ClienteTest" time="0.001"/>
+  <testcase name="shouldSetId" classname="ecommerce2.servidor.ClienteTest" time="0.001"/>
+  <testcase name="shouldGetName" classname="ecommerce2.servidor.ClienteTest" time="0.004"/>
+  <testcase name="shouldAddClientToDatabase" classname="ecommerce2.servidor.ClienteTest" time="0.047"/>
+  <testcase name="shouldCheckLoginClient1" classname="ecommerce2.servidor.ClienteTest" time="0.007"/>
+  <testcase name="shouldCheckLoginClient2" classname="ecommerce2.servidor.ClienteTest" time="0.007"/>
   <testcase name="shouldGetIdClient" classname="ecommerce2.servidor.ClienteTest" time="0.002"/>
-  <testcase name="shouldSetName" classname="ecommerce2.servidor.ClienteTest" time="0.01"/>
+  <testcase name="shouldSetName" classname="ecommerce2.servidor.ClienteTest" time="0.004"/>
 </testsuite>
