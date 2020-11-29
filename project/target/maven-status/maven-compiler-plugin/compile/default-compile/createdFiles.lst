@@ -1,6 +1,8 @@
+ecommerce2/servidor/Database.class
 ecommerce2/servidor/Server.class
 ecommerce2/servidor/Cliente.class
-ecommerce2/servidor/Ecommerce.class
 ecommerce2/servidor/Produto.class
-ecommerce2/servidor/Pedido.class
 ecommerce2/cliente/Client.class
+ecommerce2/servidor/TestDatabase.class
+ecommerce2/servidor/Ecommerce.class
+ecommerce2/servidor/Pedido.class
