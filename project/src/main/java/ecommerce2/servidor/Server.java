@@ -2,6 +2,8 @@ package ecommerce2.servidor;
 
 import java.io.*;
 import java.net.*;
+
+import ecommerce2.cliente.Client;
 import ecommerce2.servidor.*;
 
 public class Server {
@@ -11,7 +13,7 @@ public class Server {
         int ecoAux = 1;
         int userAux = 1;
         int prodAux = 1;
-        Cliente clientesDatabase = new Cliente();
+        Cliente clientesDatabase = Cliente.getInstance();
         Ecommerce ecommerceDatabase = new Ecommerce();
         
         try(ServerSocket serverSocket = new ServerSocket(8184);){
@@ -55,7 +57,11 @@ public class Server {
                     if(text.substring(0,4).equals("data")){
                         clientData = text.split(":");
                         int cpf = Integer.parseInt(clientData[2]);
-                        Cliente addNew = new Cliente(userAux,clientData[1],cpf);
+                        //Cliente addNew = new Cliente(userAux,clientData[1],cpf);
+                        Cliente addNew = Cliente.getInstance();
+                        addNew.setId(userAux);
+                        addNew.setNome(clientData[1]);
+                        addNew.setCpf(cpf);
                         clientesDatabase.clienteDatabase(addNew);
                         System.out.println("\nCliente " + clientData[1] + " foi Criado com Sucesso!\n");
                         writer.println("created");

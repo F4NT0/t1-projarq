@@ -9,13 +9,14 @@ import org.junit.jupiter.api.BeforeEach;
 public class PedidoTest {
     Pedido pedido1;
     Pedido pedido2;
+    Pedido pedido4;
     Produto produto1;
     Produto produto2;
     Produto produto3;
     
     @BeforeEach
     public void initialize(){
-        pedido2 = new Pedido();
+        pedido2= new Pedido();
         pedido1 = new Pedido(1,"Apple","Gabriel Fanto","Em Andamento",25,"02/02/2020");
         produto1 = new Produto(1,"Apple","Macbook Pro S","Mais um Macbook",2500.00);
         produto2 = new Produto(2,"Apple","Iphone S","Mais um Iphone",3000.00);

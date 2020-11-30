@@ -11,7 +11,7 @@ public class Ecommerce{
 
     /**
      * Método Construtor do Ecommerce
-     * @param idEcommerce
+     //* @param dEcommerce
      * @param nome
      */
     public Ecommerce(int id, String nome){
