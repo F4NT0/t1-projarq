@@ -1,7 +1,5 @@
 package ecommerce2.servidor;
 
-import java.util.ArrayList;
-import java.util.Observable;
 
 public class TestLista{
     public static void main(String[] args){

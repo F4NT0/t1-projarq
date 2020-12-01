@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class ListaEcommerces implements Observer{
+public class ListaEcommercesObserver {
     private static ArrayList<Ecommerce> ecommerces;
 
     public ListaEcommerces(){
         ecommerces = new ArrayList<Ecommerce>();
     }
 
-    @Override
-    public void update(Observable o, Object arg){
+    public void update(Ecommerce ec, Pedido p{
         //quando notificado de que houve alteracoes no banco de um ecommerce, adiciona esta modificacao na lista
         for(Ecommerce e:ecommerces){
-            if(e.getNomeEcommerce().equalsIgnoreCase(o.getNomeEcommerce())){
-                o.getPedidos().add(arg);
+            Ecommerce i = (Ecommerce) o;
+            if(e.getNomeEcommerce().equalsIgnoreCase(ec.getNomeEcommerce())){
+                e.getPedidos().add(p);
             }
         }
     }

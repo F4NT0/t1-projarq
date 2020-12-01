@@ -1,9 +1,6 @@
 package ecommerce2.servidor;
 
-import java.util.ArrayList;
-import java.util.Observable;
-
-public class Ecommerce extends Observable{
+public class Ecommerce extends ObservableEcommerce{
     private int idEcommerce;
     private String nomeEcommerce;
     private ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
@@ -16,6 +13,7 @@ public class Ecommerce extends Observable{
      * @param nome
      */
     public Ecommerce(int id, String nome){
+        super();
         idEcommerce = id;
         nomeEcommerce = nome;
     }
@@ -97,7 +95,7 @@ public class Ecommerce extends Observable{
                 this.ecommerces.get(i).getPedidos().add(ped);
             }
         }
-        this.notifyObservers(ped);
+        this.notifyObservers(this,ped);
         return true;
     }
 
