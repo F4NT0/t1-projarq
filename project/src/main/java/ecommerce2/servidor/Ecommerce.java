@@ -1,5 +1,7 @@
 package ecommerce2.servidor;
 
+import java.util.ArrayList;
+
 public class Ecommerce extends ObservableEcommerce{
     private int idEcommerce;
     private String nomeEcommerce;
@@ -9,7 +11,7 @@ public class Ecommerce extends ObservableEcommerce{
 
     /**
      * Método Construtor do Ecommerce
-     * @param idEcommerce
+     //* @param idEcommerce
      * @param nome
      */
     public Ecommerce(int id, String nome){

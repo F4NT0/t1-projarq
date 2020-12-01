@@ -10,8 +10,10 @@ public class ObservableEcommerce {
     }
 
     public void notifyObservers(Ecommerce e, Pedido p){
-        for(ListaEcommercesObserver observer:observers){
-            observer.update(e,p);
-        }
+        for(ListaEcommercesObserver observer:observers) {observer.update(e, p);}
+    }
+
+    public void addObserver(ListaEcommercesObserver e){
+        observers.add(e);
     }
 }

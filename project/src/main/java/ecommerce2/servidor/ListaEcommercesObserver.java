@@ -1,20 +1,19 @@
 package ecommerce2.servidor;
 
 import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
+
 
 public class ListaEcommercesObserver {
-    private static ArrayList<Ecommerce> ecommerces;
+    private ArrayList<Ecommerce> ecommerces;
 
-    public ListaEcommerces(){
+    public ListaEcommercesObserver(){
+
         ecommerces = new ArrayList<Ecommerce>();
     }
 
-    public void update(Ecommerce ec, Pedido p{
+    public void update(Ecommerce ec, Pedido p){
         //quando notificado de que houve alteracoes no banco de um ecommerce, adiciona esta modificacao na lista
         for(Ecommerce e:ecommerces){
-            Ecommerce i = (Ecommerce) o;
             if(e.getNomeEcommerce().equalsIgnoreCase(ec.getNomeEcommerce())){
                 e.getPedidos().add(p);
             }
@@ -22,15 +21,15 @@ public class ListaEcommercesObserver {
     }
 
     public ArrayList<Ecommerce> getLista(){
-        return this.ecommerces;
+        return ecommerces;
     }
 
     public void addEcommerce(Ecommerce e){
-        this.ecommerces.add(e);
+        ecommerces.add(e);
     }
 
     public void removeEcommerce(Ecommerce e){
-        this.ecommerces.remove(e);
+        ecommerces.remove(e);
     }
 
     @Override
