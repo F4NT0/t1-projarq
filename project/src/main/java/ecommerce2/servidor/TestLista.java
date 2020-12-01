@@ -5,7 +5,7 @@ public class TestLista{
     public static void main(String[] args){
         Ecommerce netShoes = new Ecommerce(0,"NetShoes");
         Ecommerce amazon = new Ecommerce(1,"Amazon");
-        ListaEcommerces ecommerces = new ListaEcommerces();
+        ListaEcommercesObserver ecommerces = new ListaEcommercesObserver();
         netShoes.addObserver(ecommerces);
         amazon.addObserver(ecommerces);
         System.out.println("Pedidos antes:");
@@ -23,7 +23,5 @@ public class TestLista{
                 System.outprintln(p);
             }
         }
-
-        
     }
 }
