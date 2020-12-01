@@ -49,12 +49,12 @@ public class Cliente {
 
     public void getDatabase(){
         System.out.println("\n");
-        System.out.println("\033[0;33m╭────────────────────────────╮");
-        System.out.println("\033[0;33m| Banco de Dados de Clientes |");
-        System.out.println("\033[0;33m╰────────────────────────────╯");
+        System.out.println("╭────────────────────────────╮");
+        System.out.println("| Banco de Dados de Clientes |");
+        System.out.println("╰────────────────────────────╯");
         System.out.println("\n");
         for(Cliente valor : db){
-            System.out.println("\033[0;33m❱ ID: " + valor.getIdCliente() + " | CLIENTE: " + valor.getNome() + " | SENHA: " + valor.getCpf() + "\033[0m");
+            System.out.println(" ID: " + valor.getIdCliente() + " | CLIENTE: " + valor.getNome() + " | SENHA: " + valor.getCpf() + "\033[0m");
         }
     }
 
