@@ -123,6 +123,7 @@ public class Client{
                     System.out.println("\nID: " + ped[2]);
                     System.out.println("\nData: " + ped[6]);
                     System.out.println("--------------------------------");
+                    pedido1.metodoPagamento();
 
                     writer.println(pedido1);
                 }   
