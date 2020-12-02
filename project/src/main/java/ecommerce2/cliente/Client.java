@@ -2,8 +2,6 @@ package ecommerce2.cliente;
 
 import java.net.*;
 import java.io.*;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 public class Client{
     
@@ -125,6 +123,7 @@ public class Client{
                     System.out.println("\nID: " + ped[2]);
                     System.out.println("\nData: " + ped[6]);
                     System.out.println("--------------------------------");
+                    pedido1.metodoPagamento();
 
                     writer.println(pedido1);
                 }   

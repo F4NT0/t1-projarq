@@ -1,6 +1,7 @@
 package ecommerce2.servidor;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Pedido {
     private int idPedido;
@@ -112,5 +113,16 @@ public class Pedido {
     @Override
     public String toString(){
         return idPedido+" ";
+    }
+  
+    public void metodoPagamento(){
+        Pagamento pag = new Pagamento();
+        Scanner teclado = new Scanner(System.in);
+        int aux=0;
+        System.out.println("Escolha a forma de pagamento:");
+        System.out.println("1-Cartao , 2-Boleto , 3-PayPal");
+        aux=teclado.nextInt();
+        teclado.close();
+        pag.criaPagamento(aux);
     }
 }
