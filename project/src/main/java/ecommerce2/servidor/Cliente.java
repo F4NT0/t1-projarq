@@ -4,18 +4,17 @@ import java.util.ArrayList;
 
 public class Cliente {
     private String nomeCliente;
+    private static Cliente cliente;
     private int cpfCliente;
     private int idCliente;
     private ArrayList<Cliente> db = new ArrayList<Cliente>();
 
-    public Cliente(int idCliente, String nome, int cpf){
-        this.idCliente = idCliente;
-        nomeCliente = nome;
-        cpfCliente = cpf;
+    private Cliente(){
     }
 
-    public Cliente(){
-
+    public static Cliente getInstance(){
+        if(cliente==null){cliente=new Cliente();}
+        return cliente;
     }
 
     public String getNome() {

@@ -11,9 +11,14 @@ public class ClienteTest {
 
     @BeforeEach
     public void initialize(){
-        clienteTest1 = new Cliente(1,"Gabriel Fanto",12345678);
-        clienteTest2 = new Cliente();
-        clienteTest3 = new Cliente();
+        //clienteTest1 = new Cliente(1,"Gabriel Fanto",12345678);
+        clienteTest1=Cliente.getInstance();
+        clienteTest1.setId(1);
+        clienteTest1.setNome("Gabriel Fanto");
+        clienteTest1.setCpf(12345678);
+        clienteTest2= Cliente.getInstance();
+        //clienteTest2 = new Cliente();
+        //clienteTest3 = new Cliente();
     }
 
     @Test

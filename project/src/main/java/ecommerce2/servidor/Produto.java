@@ -35,6 +35,8 @@ public class Produto {
      * @return idProduto
      */
     public int getIdProduto(){
+
+        System.out.println(idProduto);
         return idProduto;
     }
 

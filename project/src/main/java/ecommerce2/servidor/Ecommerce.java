@@ -12,7 +12,7 @@ public class Ecommerce extends ObservableEcommerce{
 
     /**
      * Método Construtor do Ecommerce
-     //* @param idEcommerce
+     * @param idEcommerce
      * @param nome
      */
     public Ecommerce(int id, String nome){
