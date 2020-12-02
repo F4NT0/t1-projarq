@@ -2,8 +2,6 @@ package ecommerce2.cliente;
 
 import java.net.*;
 import java.io.*;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 public class Client{
     
@@ -18,7 +16,8 @@ public class Client{
         String econameSave = "";
         try(Socket socket = new Socket("localhost",8184)){
 
-            Scanner in = new Scanner(System.in);
+            // Lendo as mensagens do Terminal
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
             // Enviando ao Servidor
             OutputStream output = socket.getOutputStream();
@@ -30,14 +29,14 @@ public class Client{
 
             //Fazendo login
             System.out.print("Deseja Logar ou se Cadastrar no Sistema? [login/sign up]: ");
-            message = in.nextLine();
+            message = in.readLine();
             if(message.equals("login")){
                 
                 System.out.print("Por favor, Digite o seu nome de usuário: ");
-                message = in.nextLine();
+                message = in.readLine();
                     
                 System.out.print("Por favor, Digite a sua senha: ");
-                String pass = in.nextLine();
+                String pass = in.readLine();
 
                 //Enviando para o Servidor
                 String userCheck = "user:" + message + ":" + pass;
@@ -46,9 +45,9 @@ public class Client{
             }else{
                 if(message.equals("sign up")){
                     System.out.print("Digite o seu nome para cadastro: ");
-                    nomeCliente = in.nextLine();
+                    nomeCliente = in.readLine();
                     System.out.print("Digite o seu CPF para cadastro: ");
-                    cpf = in.next();
+                    cpf = in.readLine();
                     dataConcat = "data:" + nomeCliente + ":" + cpf;
                     writer.println(dataConcat);
                 }
@@ -63,7 +62,7 @@ public class Client{
 
                 if(receive.equals("exit")){
                     connection = false;
-                    continue;
+                    
                 }
                 if(receive.equals("Desculpe, chegou o limite de usuarios no momento")){
                     System.out.println(receive);
@@ -74,38 +73,45 @@ public class Client{
                     System.out.println("➤ USUÁRIO: " + nomeCliente);
                     System.out.println("➤ SENHA: " + cpf);
                     System.out.println("Anote esses dados para futuro login\n\n");
-                    String selection = options();
+                    String selection = options(in);
                     writer.println(selection);
-                    continue;
+                    
                     
                 }
                 if(receive.equals("granted")){
                     System.out.println("\nBem vindo de volta " + nomeCliente);
-                    String selection = options();
+                    String selection = options(in);
                     writer.println(selection);
-                    continue;
+                    
                 }
                 if(receive.equals("error")){
                     System.out.println("Login Falhou!");
                     connection = false;
                 }
+
+                // Funcionando
                 if(receive.equals("vincular")){
-                    System.out.println("Digite o nome do seu Ecommerce: ");
-                    String econame = in.next();
+                    System.out.print("Digite o nome do seu Ecommerce: ");
+                    String econame = in.readLine();
                     econameSave = econame;
-                    writer.println("eco:" + econame);
-                    continue;
+                    if(!econame.equals(null)){
+                        writer.println("eco:" + econame);
+                    }
                 }
+
+                // Template de Funcionamento
                 if(receive.equals("produtos")){
                     System.out.print("Digite o nome do Produto: ");
-                    String nomeProduto = in.next();
+                    String nomeProduto = in.readLine();
                     System.out.print("Digite uma descrição do Produto: ");
-                    String descProduto = in.next();
+                    String descProduto = in.readLine();
                     System.out.print("Digite o preço do Produto: ");
-                    String precProduto = in.next();
-                    String concatData = "prod:" + econameSave + ": " + nomeProduto + ":" + descProduto + ":" + precProduto;
-                    writer.println(concatData);
-                    continue;
+                    String precProduto = in.readLine();
+                    if(!precProduto.equals(null)){
+                        String concatData = "prod:" + econameSave + ": " + nomeProduto + ":" + descProduto + ":" + precProduto;
+                        writer.println(concatData);
+                    }
+                    
                 }
                 if(receive.equals("pedidos")){
                     String pedido1 = options3(econameSave);
@@ -117,45 +123,41 @@ public class Client{
                     System.out.println("\nID: " + ped[2]);
                     System.out.println("\nData: " + ped[6]);
                     System.out.println("--------------------------------");
+                    pedido1.metodoPagamento();
 
                     writer.println(pedido1);
                 }   
                 if(receive.equals("eco created")){
                     System.out.println("\nE-commerce " + econameSave + " criado com Sucesso!");
-                    String selection = options2();
+                    String selection = options2(in);
                     writer.println(selection);
-                    continue;
+                    
                 }
                 if(receive.equals("reset")){
-                    String selection = options2();
+                    String selection = options2(in);
                     writer.println(selection);
                 }
             }
-            in.close();
             System.out.println("Muito Obrigado e volte sempre!");
 
         }catch(UnknownHostException e){
             System.err.println("Server not Found!");
         }catch(IOException e){
             System.err.println("I/O ERROR! " + e);
-        }catch(NoSuchElementException e){
-            System.err.println("Element Doesnt Exist!");
         }
     }
     /**
      * Primeira Interação do Cliente
      * @return
      */
-    public static String options(){
-        Scanner in = new Scanner(System.in);
+    public static String options(BufferedReader in) throws IOException{
         System.out.println("\nComo deseja interagir no Sistema?\n");
         System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
         System.out.println("❱ Desejo Cadastrar [produtos].");
         System.out.println("❱ Desejo Verificar os [pedidos]");
         System.out.println("❱ [sair] do Sistema");
         System.out.print("\nDigite sua opção desejada: ");
-        String select = in.next();
-        in.close();
+        String select = in.readLine();
         return select;
     }
 
@@ -163,16 +165,14 @@ public class Client{
      * Segunda Interação do Cliente
      * @return
      */
-    public static String options2(){
-        Scanner in = new Scanner(System.in);
+    public static String options2(BufferedReader in) throws IOException{
         System.out.println("\nO que deseja fazer no E-Commerce?\n");
         System.out.println("❱ Cadastrar [produtos].");
         System.out.println("❱ Verificar [pedidos].");
         System.out.println("❱ [vincular] outro E-Commerce.");
         System.out.println("❱ [sair].");
         System.out.print("\nDigite sua opção desejada: ");
-        String select = in.next();
-        in.close();
+        String select = in.readLine();
         return select;
     }
 

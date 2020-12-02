@@ -2,7 +2,8 @@ package ecommerce2.servidor;
 
 import java.util.ArrayList;
 
-public class Ecommerce{
+public class Ecommerce extends ObservableEcommerce{
+
     private int idEcommerce;
     private String nomeEcommerce;
     private ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
@@ -11,10 +12,11 @@ public class Ecommerce{
 
     /**
      * Método Construtor do Ecommerce
-     //* @param dEcommerce
+     * @param idEcommerce
      * @param nome
      */
     public Ecommerce(int id, String nome){
+        super();
         idEcommerce = id;
         nomeEcommerce = nome;
     }
@@ -59,16 +61,6 @@ public class Ecommerce{
     }
 
     /**
-     * Adiciona um Ecommerce no Banco de Dados de Ecommerces
-     * @param eco
-     * @return boolean
-     */
-    public boolean addEcommerceToDatabase(Ecommerce eco){
-        this.ecommerces.add(eco);
-        return true;
-    }
-
-    /**
      * Adiciona um produto em um Ecommerce específico, procurando ele no 
      * banco de dados dos Ecommerces
      * @param prod
@@ -96,6 +88,7 @@ public class Ecommerce{
                 this.ecommerces.get(i).getPedidos().add(ped);
             }
         }
+        this.notifyObservers(this,ped);
         return true;
     }
 
@@ -128,12 +121,12 @@ public class Ecommerce{
      */
     public void visualizeEcommerceDatabase(){
         System.out.println("\n");
-        System.out.println("\033[0;35m╭───────────────────────────────╮");
-        System.out.println("\033[0;35m| Banco de Dados de E-commerces |");
-        System.out.println("\033[0;35m╰───────────────────────────────╯");
+        System.out.println("╭───────────────────────────────╮");
+        System.out.println("| Banco de Dados de E-commerces |");
+        System.out.println("╰───────────────────────────────╯");
         System.out.println("\n");
         for(Ecommerce valor : this.ecommerces){
-            System.out.println("\033[0;35m❱ E-COMMERCE: " + valor.getNomeEcommerce() + " | ID: " + valor.getIdEcommerce() + "\033[0m\n\n");
+            System.out.println("E-COMMERCE: " + valor.getNomeEcommerce() + " | ID: " + valor.getIdEcommerce() + "\033[0m\n\n");
         }
     }
 
@@ -143,14 +136,14 @@ public class Ecommerce{
     public void visualizeProdutosDatabase(){
         for(int i = 0 ; i < this.ecommerces.size() ; i++){
             System.out.println("\n");
-            System.out.println("\033[0;34m E-COMMERCE " + this.ecommerces.get(i).getNomeEcommerce());
-            System.out.println("\033[0;34m╭───────────────────────────────╮");
-            System.out.println("\033[0;34m| Banco de Dados dos Produtos   |");
-            System.out.println("\033[0;34m╰───────────────────────────────╯");
+            System.out.println("E-COMMERCE " + this.ecommerces.get(i).getNomeEcommerce());
+            System.out.println("╭───────────────────────────────╮");
+            System.out.println("| Banco de Dados dos Produtos   |");
+            System.out.println("╰───────────────────────────────╯");
             System.out.println("\n");
             ArrayList<Produto> aux = this.ecommerces.get(i).getProdutos();
             for(int j = 0 ; j < aux.size() ; j++){
-                System.out.println("\033[0;34m❱ PRODUTO: " + aux.get(j).getNomeProduto() + " | ID: " + aux.get(j).getIdProduto() + " | PREÇO: " + aux.get(j).getPrecoProduto() + "\033[0m\n\n");
+                System.out.println("PRODUTO: " + aux.get(j).getNomeProduto() + " | ID: " + aux.get(j).getIdProduto() + " | PREÇO: " + aux.get(j).getPrecoProduto() + "\033[0m\n\n");
             }
         }
     }
@@ -161,14 +154,14 @@ public class Ecommerce{
     public void visualizePedidosDatabase(){
         for(int i = 0 ; i < this.ecommerces.size() ; i++){
             System.out.println("\n");
-            System.out.println("\033[0;31m E-COMMERCE " + this.ecommerces.get(i).getNomeEcommerce());
-            System.out.println("\033[0;31m╭──────────────────────────────╮");
-            System.out.println("\033[0;31m| Banco de Dados dos Pedidos   |");
-            System.out.println("\033[0;31m╰──────────────────────────────╯");
+            System.out.println("E-COMMERCE " + this.ecommerces.get(i).getNomeEcommerce());
+            System.out.println("╭──────────────────────────────╮");
+            System.out.println("| Banco de Dados dos Pedidos   |");
+            System.out.println("╰──────────────────────────────╯");
             System.out.println("\n");
             ArrayList<Pedido> aux = this.ecommerces.get(i).getPedidos();
             for(int j = 0 ; j < aux.size() ; j++){
-                System.out.println("\033[0;31m❱ CLIENTE: " + aux.get(j).getNomeCliente() + " | ID: " + aux.get(j).getIdPedido() + " | ENTREGA: " + aux.get(j).getPrazoMaximoEntrega() + "\033[0m\n\n");
+                System.out.println("CLIENTE: " + aux.get(j).getNomeCliente() + " | ID: " + aux.get(j).getIdPedido() + " | ENTREGA: " + aux.get(j).getPrazoMaximoEntrega() + "\033[0m\n\n");
             }
         }
     }
