@@ -2,8 +2,6 @@ package ecommerce2.cliente;
 
 import java.net.*;
 import java.io.*;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 public class Client{
     

@@ -2,6 +2,7 @@ package ecommerce2.servidor;
 
 import java.util.ArrayList;
 
+
 public class Ecommerce{
     private int idEcommerce;
     private String nomeEcommerce;
@@ -56,16 +57,6 @@ public class Ecommerce{
      */
     public void setNomeEcommerce(String nome){
         nomeEcommerce = nome;
-    }
-
-    /**
-     * Adiciona um Ecommerce no Banco de Dados de Ecommerces
-     * @param eco
-     * @return boolean
-     */
-    public boolean addEcommerceToDatabase(Ecommerce eco){
-        this.ecommerces.add(eco);
-        return true;
     }
 
     /**

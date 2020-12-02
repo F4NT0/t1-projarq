@@ -2,7 +2,6 @@ package ecommerce2.servidor;
 
 import java.io.*;
 import java.net.*;
-import ecommerce2.servidor.*;
 
 public class Server {
     public static void main(String args[]){
@@ -14,6 +13,7 @@ public class Server {
         int cont = 1;
         Cliente clientesDatabase = new Cliente();
         Ecommerce ecommerceDatabase = new Ecommerce();
+        Database database = new Database();
         
         try(ServerSocket serverSocket = new ServerSocket(8184);){
             System.out.println("Servidor rodando na Porta 8184!");
@@ -93,7 +93,9 @@ public class Server {
                             String eco[] = new String[2];
                             eco = text.split(":");
                             Ecommerce newEco = new Ecommerce(ecoAux,eco[1]);
-                            ecommerceDatabase.addEcommerceToDatabase(newEco);
+                            database.addEcommerceToList(newEco);
+                            database.watchEcommerceList();
+                            //ecommerceDatabase.addEcommerceToDatabase(newEco);
                             writer.println("eco created");
                             ecommerceDatabase.visualizeEcommerceDatabase();
                             ecoAux++;        
