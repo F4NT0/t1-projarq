@@ -10,7 +10,6 @@ public class Pedido {
     private String eco;
     private String data;
     private int prazoMaximoEntrega;
-    private static Pedido pedido;
     private ArrayList<Produto> listaProdutos;
 
     /**

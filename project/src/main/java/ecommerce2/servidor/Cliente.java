@@ -9,7 +9,12 @@ public class Cliente {
     private int idCliente;
     private ArrayList<Cliente> db = new ArrayList<Cliente>();
 
-    private Cliente(){
+    private Cliente(){}
+
+    public Cliente(int id, String nome, int cpf){
+        idCliente = id;
+        nomeCliente = nome;
+        cpfCliente = cpf;
     }
 
     public static Cliente getInstance(){

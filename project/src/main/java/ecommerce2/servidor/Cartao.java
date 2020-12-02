@@ -13,7 +13,7 @@ public class Cartao extends Pagamento implements CartaoInterface{
     }
 
     @Override public void exibirInfo() {
-        System.out.println("Numero: "+ this.numero+" Nome: "+this.nome+" Data de Validade: "+this.data+tipo());
+        System.out.println("Numero: "+ this.numero+" Nome: "+this.nome+" Data de Validade: "+this.data);
     }
 
      public String tipoCartao(){
