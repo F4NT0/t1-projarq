@@ -110,6 +110,11 @@ public class Pedido {
         return true;
     }
 
+    @Override
+    public String toString(){
+        return idPedido+" ";
+    }
+  
     public void metodoPagamento(){
         Pagamento pag = new Pagamento();
         Scanner teclado = new Scanner(System.in);
