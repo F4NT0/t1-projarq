@@ -1,4 +1,0 @@
-id:1-nome:pepe
-id:2-nome:popo
-id:3-nome:pipi
-id:4-nome:papa

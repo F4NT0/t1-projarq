@@ -8,13 +8,52 @@ import java.util.ArrayList;
 class Database {
     //Atributos
     private ArrayList<String> ecommerces = new ArrayList<String>();
+    private ArrayList<String> produtos = new ArrayList<String>();
+    private ArrayList<String> pedidos = new ArrayList<String>();
+    private ArrayList<String> clientes = new ArrayList<String>();
 
     public Database(){}
 
     public void addEcommercesToDatabase(){
         try{
-            PrintWriter writer = new PrintWriter("database/ecommerce.txt","utf-8");
+            PrintWriter writer = new PrintWriter("database/ecommerces.txt","utf-8");
             for(String values : ecommerces){
+                writer.println(values);
+            }
+            writer.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void addProdutoToDatabase(){
+        try{
+            PrintWriter writer = new PrintWriter("database/produtos.txt","utf-8");
+            for(String values : produtos){
+                writer.println(values);
+            }
+            writer.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void addPedidoToDatabase(){
+        try{
+            PrintWriter writer = new PrintWriter("database/pedidos.txt","utf-8");
+            for(String values : pedidos){
+                writer.println(values);
+            }
+            writer.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void addClienteToDatabase(){
+        try{
+            PrintWriter writer = new PrintWriter("database/clientes.txt","utf-8");
+            for(String values : clientes){
                 writer.println(values);
             }
             writer.close();
@@ -30,6 +69,27 @@ class Database {
         return true;
     }
 
+    public boolean addProdutosToList(Produto prod){
+        String data = "id:" + prod.getIdProduto() + "-" + "eco:" + prod.getEcommerceProduto() + "-" + "nome:" + prod.getNomeProduto() + "-" + "desc:" + prod.getDescricaoProduto() + "-" + "preco:" + prod.getPrecoProduto();
+        produtos.add(data);
+        addProdutoToDatabase();
+        return true;
+    }
+
+    public boolean addPedidosToList(Pedido ped){
+        String data = "id:" + ped.getIdPedido() + "-" + "eco:" + ped.getNomeEcommerce() + "-" + "cliente:" + ped.getNomeCliente() + "-" + "status:" + ped.getStatus() + "-" + "max:" + ped.getPrazoMaximoEntrega() + "-" + "data:" + ped.getData();
+        pedidos.add(data);
+        addPedidoToDatabase();
+        return true;
+    }
+
+    public boolean addClientesToList(Cliente client){
+        String data = "id:" + client.getIdCliente() + "-" + "nome:" + client.getNome() + "-" + "cpf:" + client.getCpf();
+        clientes.add(data);
+        addClienteToDatabase();
+        return true;
+    }
+
     public void watchEcommerceList(){
         for(String values : ecommerces){
             System.out.println("Ecommerce: " + values);
@@ -39,13 +99,14 @@ class Database {
     public static void main(String[] args){
         Database database = new Database();
         Ecommerce eco = new Ecommerce(1,"Pepe");
-        Ecommerce eco2 = new Ecommerce(2,"Lolo");
-        Ecommerce eco3 = new Ecommerce(3,"Lala");
-        Ecommerce eco4 = new Ecommerce(3,"Lala");
+        Produto prod = new Produto(1,"Pepe","PS5","descricao",123.00);
+        Cliente client = new Cliente(1,"Pedro",1234);
+        Pedido ped = new Pedido(1,"Pepe","Pedro","Em Andamento",3,"24/03/2020");
+        
         database.addEcommerceToList(eco);
-        database.addEcommerceToList(eco2);
-        database.addEcommerceToList(eco3);
-        database.addEcommerceToList(eco4);
-        database.addEcommercesToDatabase();
+        database.addProdutosToList(prod);
+        database.addClientesToList(client);
+        database.addPedidosToList(ped);
+
     }
 }
