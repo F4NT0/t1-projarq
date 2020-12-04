@@ -8,6 +8,7 @@ public class Cliente {
     private int cpfCliente;
     private int idCliente;
     private ArrayList<Cliente> db = new ArrayList<Cliente>();
+    private Database bancodedados = new Database();
 
     private Cliente(){}
 
@@ -52,11 +53,13 @@ public class Cliente {
     }
 
     public boolean checkLogin(String nome, int senha){
-        for(int i = 0 ; i < db.size() ; i++){
-            if(db.get(i).getNome().equals(nome)){
-                if(db.get(i).getCpf() == senha){
-                    return true;
-                }
+        bancodedados.initialize();
+        for(String s:bancodedados.getListaClientes()){
+            String[] parte = s.split("-");
+            String nomes = parte[1].substring(5);
+            String senhas = parte[2].substring(4);
+            if((nomes.equals(nome))&&(senhas.equals(senha))){
+                return true;
             }
         }
         return false;

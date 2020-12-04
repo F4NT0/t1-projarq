@@ -15,11 +15,15 @@ class Database{
 
     public Database(){}
 
+    public ArrayList<String> getListaClientes(){
+        return this.clientes;
+    }
+
     public void addEcommercesToDatabase(){
         try{
             PrintWriter writer = new PrintWriter("database/ecommerces.txt","utf-8");
             for(String values : ecommerces){
-                writer.println(values);
+                writer.println(values+"\n");
             }
             writer.close();
         }catch(IOException e){
@@ -31,7 +35,7 @@ class Database{
         try{
             PrintWriter writer = new PrintWriter("database/produtos.txt","utf-8");
             for(String values : produtos){
-                writer.println(values);
+                writer.println(values+"\n");
             }
             writer.close();
         }catch(IOException e){
@@ -43,7 +47,7 @@ class Database{
         try{
             PrintWriter writer = new PrintWriter("database/pedidos.txt","utf-8");
             for(String values : pedidos){
-                writer.println(values);
+                writer.println(values+"\n");
             }
             writer.close();
         }catch(IOException e){
@@ -55,7 +59,7 @@ class Database{
         try{
             PrintWriter writer = new PrintWriter("database/clientes.txt","utf-8");
             for(String values : clientes){
-                writer.println(values);
+                writer.println(values+"\n");
             }
             writer.close();
         }catch(IOException e){
@@ -97,6 +101,27 @@ class Database{
         }
     }
 
+    public void initialize(){
+        try {
+            FileReader arq = new FileReader("database/clientes.txt");
+            BufferedReader lerArq = new BufferedReader(arq);
+      
+            String linha = lerArq.readLine(); // lê a primeira linha
+      // a variável "linha" recebe o valor "null" quando o processo
+      // de repetição atingir o final do arquivo texto
+            while (linha != null) {
+              //System.out.printf("%s\n", linha);
+                this.clientes.add(linha);
+              linha = lerArq.readLine(); // lê a proxima linha
+            }
+      
+            arq.close();
+          } catch (IOException e) {
+              System.err.printf("Erro na abertura do arquivo: %s.\n",
+                e.getMessage());
+          }
+    }
+
     public static void main(String[] args) throws IOException{
         Database database = new Database();
         Ecommerce eco = new Ecommerce(1,"Fantolino");
@@ -122,7 +147,5 @@ class Database{
         String[] slachOff = new String[3];
         slachOff = newData.split("-");
         for(String valor : slachOff){System.out.println(valor);}
-        
-
     }
 }
