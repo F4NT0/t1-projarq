@@ -16,7 +16,7 @@ class Database {
 
     public void addEcommercesToDatabase(){
         try{
-            PrintWriter writer = new PrintWriter("database/ecommerces.txt","utf-8");
+            PrintWriter writer = new PrintWriter("project/src/database/ecommerces.txt","utf-8");
             for(String values : ecommerces){
                 writer.println(values);
             }
@@ -28,7 +28,7 @@ class Database {
 
     public void addProdutoToDatabase(){
         try{
-            PrintWriter writer = new PrintWriter("database/produtos.txt","utf-8");
+            PrintWriter writer = new PrintWriter("project/src/database/produtos.txt","utf-8");
             for(String values : produtos){
                 writer.println(values);
             }
@@ -40,7 +40,7 @@ class Database {
 
     public void addPedidoToDatabase(){
         try{
-            PrintWriter writer = new PrintWriter("database/pedidos.txt","utf-8");
+            PrintWriter writer = new PrintWriter("project/src/database/pedidos.txt","utf-8");
             for(String values : pedidos){
                 writer.println(values);
             }
@@ -52,7 +52,7 @@ class Database {
 
     public void addClienteToDatabase(){
         try{
-            PrintWriter writer = new PrintWriter("database/clientes.txt","utf-8");
+            PrintWriter writer = new PrintWriter("project/src/database/clientes.txt","utf-8");
             for(String values : clientes){
                 writer.println(values);
             }
@@ -100,7 +100,11 @@ class Database {
         Database database = new Database();
         Ecommerce eco = new Ecommerce(1,"Pepe");
         Produto prod = new Produto(1,"Pepe","PS5","descricao",123.00);
-        Cliente client = new Cliente(1,"Pedro",1234);
+       // Cliente client = new Cliente(1,"Pedro",1234);
+        Cliente client= Cliente.getInstance();
+        client.setCpf(1234);
+        client.setNome("Pedro");
+        client.setId(1);
         Pedido ped = new Pedido(1,"Pepe","Pedro","Em Andamento",3,"24/03/2020");
         
         database.addEcommerceToList(eco);

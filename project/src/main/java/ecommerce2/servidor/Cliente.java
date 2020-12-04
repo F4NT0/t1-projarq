@@ -11,7 +11,7 @@ public class Cliente {
 
     private Cliente(){}
 
-    public Cliente(int id, String nome, int cpf){
+    private Cliente(int id, String nome, int cpf){
         idCliente = id;
         nomeCliente = nome;
         cpfCliente = cpf;

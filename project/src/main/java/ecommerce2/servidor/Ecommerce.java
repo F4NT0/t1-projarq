@@ -7,12 +7,13 @@ public class Ecommerce extends ObservableEcommerce{
     private int idEcommerce;
     private String nomeEcommerce;
     private ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
-    private ArrayList<Ecommerce> ecommerces = new ArrayList<Ecommerce>();
+    private ListaEcommercesObserver ecommerces = new ListaEcommercesObserver();
     private ArrayList<Produto> produtos = new ArrayList<Produto>();
+    private Database db = new Database();
 
     /**
      * Método Construtor do Ecommerce
-     * @param idEcommerce
+     //* @param idEcommerce
      * @param nome
      */
     public Ecommerce(int id, String nome){
@@ -68,9 +69,9 @@ public class Ecommerce extends ObservableEcommerce{
      * @return boolean
      */
     public boolean addProdutosToDatabase(Produto prod, String eco){
-        for(int i = 0 ; i < this.ecommerces.size() ; i++){
-            if(ecommerces.get(i).getNomeEcommerce().equals(eco)){
-                ecommerces.get(i).getProdutos().add(prod);
+        for(int i = 0 ; i < this.ecommerces.getLista().size() ; i++){
+            if(ecommerces.getLista().get(i).getNomeEcommerce().equals(eco)){
+               this.db.addProdutosToList(prod);
             }
         }
         return true;
@@ -83,9 +84,9 @@ public class Ecommerce extends ObservableEcommerce{
      * @return
      */
     public boolean addPedidosToDatabase(Pedido ped, String eco){
-        for(int i = 0 ; i < this.ecommerces.size() ; i++){
-            if(this.ecommerces.get(i).getNomeEcommerce().equals(eco)){
-                this.ecommerces.get(i).getPedidos().add(ped);
+        for(int i = 0 ; i < this.ecommerces.getLista().size() ; i++){
+            if(this.ecommerces.getLista().get(i).getNomeEcommerce().equals(eco)){
+                this.db.addPedidosToList(ped);
             }
         }
         this.notifyObservers(this,ped);
@@ -113,7 +114,7 @@ public class Ecommerce extends ObservableEcommerce{
      * @return
      */
     public ArrayList<Ecommerce> getEcommerces(){
-        return ecommerces;
+        return ecommerces.getLista();
     }
 
     /**
@@ -125,7 +126,7 @@ public class Ecommerce extends ObservableEcommerce{
         System.out.println("| Banco de Dados de E-commerces |");
         System.out.println("╰───────────────────────────────╯");
         System.out.println("\n");
-        for(Ecommerce valor : this.ecommerces){
+        for(Ecommerce valor : this.ecommerces.getLista()){
             System.out.println("E-COMMERCE: " + valor.getNomeEcommerce() + " | ID: " + valor.getIdEcommerce() + "\033[0m\n\n");
         }
     }
@@ -134,14 +135,14 @@ public class Ecommerce extends ObservableEcommerce{
      * Visualização do Banco de Dados Fictício do Produto
      */
     public void visualizeProdutosDatabase(){
-        for(int i = 0 ; i < this.ecommerces.size() ; i++){
+        for(int i = 0 ; i < this.ecommerces.getLista().size() ; i++){
             System.out.println("\n");
-            System.out.println("E-COMMERCE " + this.ecommerces.get(i).getNomeEcommerce());
+            System.out.println("E-COMMERCE " + this.ecommerces.getLista().get(i).getNomeEcommerce());
             System.out.println("╭───────────────────────────────╮");
             System.out.println("| Banco de Dados dos Produtos   |");
             System.out.println("╰───────────────────────────────╯");
             System.out.println("\n");
-            ArrayList<Produto> aux = this.ecommerces.get(i).getProdutos();
+            ArrayList<Produto> aux = this.ecommerces.getLista().get(i).getProdutos();
             for(int j = 0 ; j < aux.size() ; j++){
                 System.out.println("PRODUTO: " + aux.get(j).getNomeProduto() + " | ID: " + aux.get(j).getIdProduto() + " | PREÇO: " + aux.get(j).getPrecoProduto() + "\033[0m\n\n");
             }
@@ -152,14 +153,14 @@ public class Ecommerce extends ObservableEcommerce{
      * Visualização do Banco de Dados Fictício do Pedido
      */
     public void visualizePedidosDatabase(){
-        for(int i = 0 ; i < this.ecommerces.size() ; i++){
+        for(int i = 0 ; i < this.ecommerces.getLista().size() ; i++){
             System.out.println("\n");
-            System.out.println("E-COMMERCE " + this.ecommerces.get(i).getNomeEcommerce());
+            System.out.println("E-COMMERCE " + this.ecommerces.getLista().get(i).getNomeEcommerce());
             System.out.println("╭──────────────────────────────╮");
             System.out.println("| Banco de Dados dos Pedidos   |");
             System.out.println("╰──────────────────────────────╯");
             System.out.println("\n");
-            ArrayList<Pedido> aux = this.ecommerces.get(i).getPedidos();
+            ArrayList<Pedido> aux = this.ecommerces.getLista().get(i).getPedidos();
             for(int j = 0 ; j < aux.size() ; j++){
                 System.out.println("CLIENTE: " + aux.get(j).getNomeCliente() + " | ID: " + aux.get(j).getIdPedido() + " | ENTREGA: " + aux.get(j).getPrazoMaximoEntrega() + "\033[0m\n\n");
             }
