@@ -42,16 +42,14 @@ public class Server {
                     if(text.substring(0,5).equals("data:")){
                         clientData = text.split(":");
                         int cpf = Integer.parseInt(clientData[2]);
-                        //Cliente addNew = new Cliente(userAux,clientData[1],cpf);
                         Cliente addNew = Cliente.getInstance();
                         addNew.setId(userAux);
                         addNew.setNome(clientData[1]);
                         addNew.setCpf(cpf);
-                        clientesDatabase.clienteDatabase(addNew);
+                        database.addClientesToList(addNew);
                         System.out.println("\nCliente " + clientData[1] + " foi Criado com Sucesso!\n");
                         writer.println("created");
                         userAux++;
-                        clientesDatabase.getDatabase();
                         continue;
                     }
 
@@ -89,9 +87,8 @@ public class Server {
                         int id = Integer.parseInt(ped[2]);
                         int tempo = Integer.parseInt(ped[5]);
                         Pedido pedido = new Pedido(id,ped[1],ped[3],ped[4],tempo,ped[6]);
-                        ecommerceDatabase.addPedidosToDatabase(pedido,ped[1]);
-                        writer.println("reset");
-                        ecommerceDatabase.visualizePedidosDatabase();        
+                        database.addPedidosToList(pedido);
+                        writer.println("reset");       
                     }
     
                     if(text.substring(0,4).equals("eco:")){
@@ -111,8 +108,9 @@ public class Server {
                         prod = text.split(":");
                         double preco = Double.parseDouble(prod[4]);
                         Produto produto = new Produto(prodAux,prod[1],prod[2],prod[3],preco);
-                        ecommerceDatabase.addProdutosToDatabase(produto,prod[1]);
-                        ecommerceDatabase.visualizeProdutosDatabase();
+                        database.addProdutosToList(produto);
+                        //ecommerceDatabase.addProdutosToDatabase(produto,prod[1]);
+                        //ecommerceDatabase.visualizeProdutosDatabase();
                         prodAux++;
                         writer.println("reset");
                     }

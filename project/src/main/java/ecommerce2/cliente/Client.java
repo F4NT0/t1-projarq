@@ -23,9 +23,7 @@ public class Client{
             OutputStream output = socket.getOutputStream();
             PrintWriter writer = new PrintWriter(output,true);
 
-            System.out.println("╔═════════════════════════════════════════╗");
-            System.out.println("║ BEM VINDO AO GERÊNCIADOR DE E-COMMERCES ║");
-            System.out.println("╚═════════════════════════════════════════╝");
+            System.out.println("BEM VINDO AO GERÊNCIADOR DE E-COMMERCES \n\n");
 
             //Fazendo login
             System.out.print("Deseja Logar ou se Cadastrar no Sistema? [login/sign up]: ");
@@ -70,8 +68,8 @@ public class Client{
                 }
                 if(receive.equals("created")){
                     System.out.println("\nSua conta foi criada com Sucesso!");
-                    System.out.println("➤ USUÁRIO: " + nomeCliente);
-                    System.out.println("➤ SENHA: " + cpf);
+                    System.out.println("USUARIO: " + nomeCliente);
+                    System.out.println("SENHA: " + cpf);
                     System.out.println("Anote esses dados para futuro login\n\n");
                     String selection = options(in);
                     writer.println(selection);
@@ -152,10 +150,10 @@ public class Client{
      */
     public static String options(BufferedReader in) throws IOException{
         System.out.println("\nComo deseja interagir no Sistema?\n");
-        System.out.println("❱ Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
-        System.out.println("❱ Desejo Cadastrar [produtos].");
-        System.out.println("❱ Desejo Verificar os [pedidos]");
-        System.out.println("❱ [sair] do Sistema");
+        System.out.println("Sou dono de Ecommerce e desejo [vincular] meu sistema ao gerenciador.");
+        System.out.println("Desejo Cadastrar [produtos].");
+        System.out.println("Desejo Verificar os [pedidos]");
+        System.out.println("[sair] do Sistema");
         System.out.print("\nDigite sua opção desejada: ");
         String select = in.readLine();
         return select;
@@ -167,10 +165,10 @@ public class Client{
      */
     public static String options2(BufferedReader in) throws IOException{
         System.out.println("\nO que deseja fazer no E-Commerce?\n");
-        System.out.println("❱ Cadastrar [produtos].");
-        System.out.println("❱ Verificar [pedidos].");
-        System.out.println("❱ [vincular] outro E-Commerce.");
-        System.out.println("❱ [sair].");
+        System.out.println("Cadastrar [produtos].");
+        System.out.println("Verificar [pedidos].");
+        System.out.println("[vincular] outro E-Commerce.");
+        System.out.println("[sair].");
         System.out.print("\nDigite sua opção desejada: ");
         String select = in.readLine();
         return select;

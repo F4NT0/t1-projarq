@@ -3,9 +3,10 @@ package ecommerce2.servidor;
 // Import
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.FileReader;
 import java.util.ArrayList;
 
-class Database {
+class Database{
     //Atributos
     private ArrayList<String> ecommerces = new ArrayList<String>();
     private ArrayList<String> produtos = new ArrayList<String>();
@@ -16,7 +17,7 @@ class Database {
 
     public void addEcommercesToDatabase(){
         try{
-            PrintWriter writer = new PrintWriter("project/src/database/ecommerces.txt","utf-8");
+            PrintWriter writer = new PrintWriter("database/ecommerces.txt","utf-8");
             for(String values : ecommerces){
                 writer.println(values);
             }
@@ -28,7 +29,7 @@ class Database {
 
     public void addProdutoToDatabase(){
         try{
-            PrintWriter writer = new PrintWriter("project/src/database/produtos.txt","utf-8");
+            PrintWriter writer = new PrintWriter("database/produtos.txt","utf-8");
             for(String values : produtos){
                 writer.println(values);
             }
@@ -40,7 +41,7 @@ class Database {
 
     public void addPedidoToDatabase(){
         try{
-            PrintWriter writer = new PrintWriter("project/src/database/pedidos.txt","utf-8");
+            PrintWriter writer = new PrintWriter("database/pedidos.txt","utf-8");
             for(String values : pedidos){
                 writer.println(values);
             }
@@ -52,7 +53,7 @@ class Database {
 
     public void addClienteToDatabase(){
         try{
-            PrintWriter writer = new PrintWriter("project/src/database/clientes.txt","utf-8");
+            PrintWriter writer = new PrintWriter("database/clientes.txt","utf-8");
             for(String values : clientes){
                 writer.println(values);
             }
@@ -96,14 +97,14 @@ class Database {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         Database database = new Database();
-        Ecommerce eco = new Ecommerce(1,"Pepe");
-        Produto prod = new Produto(1,"Pepe","PS5","descricao",123.00);
+        Ecommerce eco = new Ecommerce(1,"Fantolino");
+        Produto prod = new Produto(1,"Popo","PS5","descricao",123.00);
        // Cliente client = new Cliente(1,"Pedro",1234);
         Cliente client= Cliente.getInstance();
-        client.setCpf(1234);
-        client.setNome("Pedro");
+        client.setCpf(3456);
+        client.setNome("Fanto");
         client.setId(1);
         Pedido ped = new Pedido(1,"Pepe","Pedro","Em Andamento",3,"24/03/2020");
         
@@ -111,6 +112,17 @@ class Database {
         database.addProdutosToList(prod);
         database.addClientesToList(client);
         database.addPedidosToList(ped);
+
+        // Exemplo de Pegando os Dados
+        FileReader fileReader = new FileReader("database/clientes.txt");
+        char[] data = new char[100];
+        fileReader.read(data);
+        String newData = "";
+        for(char valor : data){newData += valor;}
+        String[] slachOff = new String[3];
+        slachOff = newData.split("-");
+        for(String valor : slachOff){System.out.println(valor);}
+        
 
     }
 }

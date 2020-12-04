@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8752ae1-6365-4e66-8807-0446c67de297" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Ecommerce.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Ecommerce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/database/produtos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/database/produtos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/ecommerce2/cliente/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/ecommerce2/cliente/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/ecommerce2/servidor/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/test/java/ecommerce2/servidor/ClienteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/test/java/ecommerce2/servidor/ClienteTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/test/java/ecommerce2/servidor/PedidoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/test/java/ecommerce2/servidor/PedidoTest.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +28,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_191/src.zip!/java/util/ArrayList.java">
+        <entry file="jar://$PROJECT_DIR$/../../../../Program Files (x86)/Java/jdk1.8.0_191/src.zip!/java/util/ArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="20230">
               <caret line="1256" selection-start-line="1256" selection-end-line="1256" />
@@ -163,6 +153,7 @@
     <option name="width" value="981" />
     <option name="height" value="1032" />
   </component>
+  <component name="ProjectId" id="1lAjHMyNSxYpgHZEDY4JxPpatJ0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -224,30 +215,37 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1606776012645" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="JUnit.ClienteTest.shouldSetName">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClienteTest.shouldGetCpf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
@@ -321,6 +319,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -333,6 +332,7 @@
       <updated>1606516958200</updated>
       <workItem from="1606516961077" duration="3010000" />
       <workItem from="1606774596500" duration="1418000" />
+      <workItem from="1607046724390" duration="2332000" />
     </task>
     <servers />
   </component>
@@ -406,14 +406,14 @@
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_191/src.zip!/java/util/ArrayList.java">
+    <entry file="jar://$PROJECT_DIR$/../../../../Program Files (x86)/Java/jdk1.8.0_191/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20230">
           <caret line="1256" selection-start-line="1256" selection-end-line="1256" />
