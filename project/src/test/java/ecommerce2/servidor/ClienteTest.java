@@ -57,38 +57,38 @@ public class ClienteTest {
         Assertions.assertEquals(2,this.clienteTest2.getIdCliente());
     }
 
-    @Test
-    public void shouldAddClientToDatabase(){
-        this.clienteTest2.setNome("Felipe Tavares");
-        this.clienteTest2.setCpf(87654321);
-        this.clienteTest2.setId(2);
-        boolean add1 = this.clienteTest3.clienteDatabase(this.clienteTest1);
-        boolean add2 = this.clienteTest3.clienteDatabase(this.clienteTest2);
-        this.clienteTest3.getDatabase();
-        Assertions.assertTrue(add1 && add2);
-    }
+    //@Test
+    //public void shouldAddClientToDatabase(){
+    //    this.clienteTest2.setNome("Felipe Tavares");
+    //    this.clienteTest2.setCpf(87654321);
+    //    this.clienteTest2.setId(2);
+    //    boolean add1 = this.clienteTest3.clienteDatabase(this.clienteTest1);
+    //    boolean add2 = this.clienteTest3.clienteDatabase(this.clienteTest2);
+        //this.clienteTest3.getDatabase();
+    //    Assertions.assertTrue(add1 && add2);
+    //}
 
-    @Test
-    public void shouldCheckLoginClient1(){
-        boolean add1 = this.clienteTest3.clienteDatabase(this.clienteTest1);
-        boolean result = this.clienteTest3.checkLogin("Gabriel Fanto", 12345678);
-        Assertions.assertTrue(add1 && result);
-    }
+    //@Test
+    //public void shouldCheckLoginClient1(){
+    //    boolean add1 = this.clienteTest3.clienteDatabase(this.clienteTest1);
+    //    boolean result = this.clienteTest3.checkLogin("Gabriel Fanto", 12345678);
+   //     Assertions.assertTrue(add1 && result);
+    //}
 
-    @Test
-    public void shouldCheckLoginClient2(){
-        this.clienteTest2.setNome("Felipe Tavares");
-        this.clienteTest2.setCpf(87654321);
-        this.clienteTest2.setId(2);
-        boolean add2 = this.clienteTest3.clienteDatabase(this.clienteTest2);
-        boolean result = this.clienteTest3.checkLogin("Felipe Tavares", 87654321);
-        Assertions.assertTrue(add2 && result);
-    }
+    //@Test
+    //public void shouldCheckLoginClient2(){
+   //     this.clienteTest2.setNome("Felipe Tavares");
+   //     this.clienteTest2.setCpf(87654321);
+   //     this.clienteTest2.setId(2);
+   //     boolean add2 = this.clienteTest3.clienteDatabase(this.clienteTest2);
+   //     boolean result = this.clienteTest3.checkLogin("Felipe Tavares", 87654321);
+   //     Assertions.assertTrue(add2 && result);
+   // }
 
-    @Test
-    public void shoulCheckLoginFalse(){
-        boolean result = this.clienteTest3.checkLogin("BLABLABLA", 1234);
-        Assertions.assertFalse(result);
-    }
+   // @Test
+    //public void shoulCheckLoginFalse(){
+   //     boolean result = this.clienteTest3.checkLogin("BLABLABLA", 1234);
+   //     Assertions.assertFalse(result);
+   // }
 
 }

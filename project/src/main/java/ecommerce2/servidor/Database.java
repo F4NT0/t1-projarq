@@ -3,6 +3,7 @@ package ecommerce2.servidor;
 // Import
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
@@ -147,5 +148,6 @@ class Database{
         String[] slachOff = new String[3];
         slachOff = newData.split("-");
         for(String valor : slachOff){System.out.println(valor);}
+        fileReader.close();
     }
 }

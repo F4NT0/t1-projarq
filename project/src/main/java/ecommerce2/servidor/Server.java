@@ -14,7 +14,7 @@ public class Server {
         int userAux = 1;
         int prodAux = 1;
         Cliente clientesDatabase = Cliente.getInstance();
-        Ecommerce ecommerceDatabase = new Ecommerce();
+        //Ecommerce ecommerceDatabase = new Ecommerce();
         Database database = new Database();
         
         try(ServerSocket serverSocket = new ServerSocket(8184);){
@@ -99,7 +99,7 @@ public class Server {
                         database.watchEcommerceList();
                         //ecommerceDatabase.addEcommerceToDatabase(newEco);
                         writer.println("eco created");
-                        ecommerceDatabase.visualizeEcommerceDatabase();
+                        //ecommerceDatabase.visualizeEcommerceDatabase();
                         ecoAux++;        
                     }
     
