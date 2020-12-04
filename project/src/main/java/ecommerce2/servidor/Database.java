@@ -140,12 +140,46 @@ class Database{
         database.addPedidosToList(ped);
 
         // Exemplo de Pegando os Dados
+        System.out.println("CLIENTES\n\n");
         FileReader fileReader = new FileReader("database/clientes.txt");
         char[] data = new char[100];
         fileReader.read(data);
         String newData = "";
         for(char valor : data){newData += valor;}
         String[] slachOff = new String[3];
+        slachOff = newData.split("-");
+        for(String valor : slachOff){System.out.println(valor);}
+        fileReader.close();
+
+        System.out.println("ECOMMERCES\n\n");
+        fileReader = new FileReader("database/ecommerces.txt");
+        data = new char[100];
+        fileReader.read(data);
+        newData = "";
+        for(char valor : data){newData += valor;}
+        slachOff = new String[3];
+        slachOff = newData.split("-");
+        for(String valor : slachOff){System.out.println(valor);}
+        fileReader.close();
+
+        System.out.println("PEDIDOS\n\n");
+        fileReader = new FileReader("database/pedidos.txt");
+        data = new char[100];
+        fileReader.read(data);
+        newData = "";
+        for(char valor : data){newData += valor;}
+        slachOff = new String[3];
+        slachOff = newData.split("-");
+        for(String valor : slachOff){System.out.println(valor);}
+        fileReader.close();
+
+        System.out.println("PRODUTOS\n\n");
+        fileReader = new FileReader("database/produtos.txt");
+        data = new char[100];
+        fileReader.read(data);
+        newData = "";
+        for(char valor : data){newData += valor;}
+        slachOff = new String[3];
         slachOff = newData.split("-");
         for(String valor : slachOff){System.out.println(valor);}
         fileReader.close();
