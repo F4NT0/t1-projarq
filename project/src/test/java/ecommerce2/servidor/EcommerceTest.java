@@ -87,7 +87,7 @@ public class EcommerceTest {
     public void shouldVisualizeTwoProdutosDatabase(){
         this.ecommerce2.setIdEcommerce(2);
         this.ecommerce2.setNomeEcommerce("Ponto Frio");
-        Ecommerce database = new Ecommerce();
+        //Ecommerce database = new Ecommerce();
        // boolean addedEco1 = database.addEcommerceToDatabase(this.ecommerce1);
       //  boolean addedEco2 = database.addEcommerceToDatabase(this.ecommerce2);
        // boolean addedProd1 = database.addProdutosToDatabase(this.produto1, this.produto1.getEcommerceProduto());
